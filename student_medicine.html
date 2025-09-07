@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>مدیریت داروها</title>
+
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="public/css.css" />
+  </head>
+  <body>
+    <section>
+      <nav
+        class="navbar navbar-expand-lg bg-body-tertiary rounded"
+        aria-label="Eleventh navbar example"
+      >
+        <div class="container">
+          <a class="btn btn-custom mx-2 d-flex align-items-center" href="#">
+            <span class="fw-bold"> ویرایش پروفایل </span>
+            <i class="bi bi-person-circle mx-2"></i>
+          </a>
+          <a class="btn btn-custom" href="#">
+            <span class="fw-bold">خروج</span>
+            <i class="bi bi-box-arrow-left mx-2"></i>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample09"
+            aria-controls="navbarsExample09"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <p class="fs-5 fw-bold text-dark mx-5 my-0">طاها رحمانی</p>
+          <div class="collapse navbar-collapse" id="navbarsExample09">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item mx-3">
+                <a
+                  class="nav-link active fs-5 fw-bold"
+                  aria-current="page"
+                  href="#"
+                  >صفحه اصلی</a
+                >
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link fs-5 fw-bold" href="#">اردوها</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link fs-5 fw-bold">فیلم های آموزشی</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link fs-5 fw-bold">نمرات</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link fs-5 fw-bold">تکالیف</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link fs-5 fw-bold">اوقات فراقت</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <section>
+      <div class="medicine">
+        <div class="container-fluid">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-7">
+              <div class="medicine_content">
+                <img
+                  src="image/shining.png"
+                  class="medicine_content-img1"
+                  alt=""
+                />
+                <p class="fs-1 fw-bold text-center">مدیریت دارو های فرزندتان</p>
+                <p class="fs-4 text-center">
+                  <span class="fs-3 fw-bold">توضیح کوتاه:</span>
+                  در این بخش می‌توانید لیست داروهای تجویز شده برای فرزندتان را
+                  مدیریت کنید. با افزودن جزئیات، زمان‌بندی مصرف را تنظیم کرده و
+                  از یادآوری‌ها استفاده کنید.
+                </p>
+                <p class="fs-4 text-center">
+                  <span class="fs-3 fw-bold">دستور العمل:</span>
+                  برای افزودن دارو، روی دکمه 'افزودن دارو' کلیک کنید و اطلاعات
+                  شامل نام، دوز، و زمان مصرف را وارد کنید.
+                </p>
+                <img
+                  src="image/shining.png"
+                  class="medicine_content-img2"
+                  alt=""
+                />
+                <img
+                  src="image/medical.png"
+                  class="medicine_content-img3"
+                  alt=""
+                />
+                <img
+                  src="image/medicine.png"
+                  class="medicine_content-img4"
+                  alt=""
+                />
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="medicine_image">
+                <div class="medicine_image-img">
+                  <img
+                    src="image/2d0c8721ca7a9dbc3a43979a274aceae.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="pill">
+        <div class="container mt-5">
+          <div class="row position-relative">
+            <p class="fs-4 fw-bold text-end pill_title-list">لیست داروها:</p>
+            <div class="pill_table-responsive">
+              <table class="table pill_table-custom table-striped">
+                <thead>
+                  <tr>
+                    <th>ردیف</th>
+                    <th>نام دارو</th>
+                    <th>دوز دارو</th>
+                    <th>زمان مصرف</th>
+                    <th>یادداشت</th>
+                    <th>وضعیت</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>استامینفن</td>
+                    <td>1 دونه</td>
+                    <td>11:00:00</td>
+                    <td>حتمی یاد تون نشه</td>
+                    <td>مصرف شد</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>شربت سرماخوردگی</td>
+                    <td>1قاشق غذاخوری</td>
+                    <td>13:00:00</td>
+                    <td>حتمی یاد تون نشه</td>
+                    <td>در انتظار</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <img src="image/pill.png" class="pill_img1" alt="" />
+          </div>
+          <div class="row position-relative">
+            <div class="pill_form-container">
+              <h3 class="text-center mb-4">افزودن دارو جدید</h3>
+              <form>
+                <div class="mb-3">
+                  <label for="drugName" class="pill_form-label">نام دارو</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="drugName"
+                    placeholder="مثال: استامینوفن"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="dosage" class="pill_form-label"
+                    >دوز (میلی‌گرم)</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="dosage"
+                    placeholder="مثال: 500"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="schedule" class="pill_form-label"
+                    >زمان‌بندی مصرف</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="schedule"
+                    placeholder="مثال: صبح و شب"
+                    required
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="notes" class="pill_form-label"
+                    >یادداشت (اختیاری)</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="notes"
+                    rows="3"
+                    placeholder="مثال: با معده خالی مصرف نشود"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn pill_btn-custom w-100">
+                  افزودن دارو
+                </button>
+              </form>
+            </div>
+            <img src="image/medical.png" class="pill_img2" alt="" />
+            <img src="image/medicine.png" class="pill_img3" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= footer ============================================= -->
+    <section>
+      <footer class="modern-footer">
+        <div class="footer-container">
+          <!-- ستون اول: لوگو برند -->
+          <div class="brand-section">
+            <div class="brand-logo">
+              <div class="logo-icon">
+                <svg
+                  width="60"
+                  height="60"
+                  viewBox="0 0 60 60"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="30"
+                    cy="30"
+                    r="28"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                  <path
+                    d="M20 25 L30 35 L40 25"
+                    stroke="#ffffff"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle cx="30" cy="20" r="3" fill="#ffffff" />
+                  <circle cx="30" cy="40" r="3" fill="#ffffff" />
+                </svg>
+              </div>
+              <h3>شرکت نمونه</h3>
+              <p>ارائه خدمات با کیفیت و نوآوری در زمینه تکنولوژی</p>
+            </div>
+          </div>
+
+          <!-- ستون دوم: خبرنامه -->
+          <div class="newsletter-section">
+            <h5>خبرنامه شرکت را دریافت کنید</h5>
+            <div class="email-subscription">
+              <input
+                type="email"
+                placeholder="ایمیل خود را وارد کنید"
+                class="email-input"
+              />
+              <button class="subscribe-btn">عضویت</button>
+            </div>
+            <div class="social-icons">
+              <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="bi bi-pinterest"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+            </div>
+          </div>
+
+          <!-- ستون سوم: لینک‌های ناوبری -->
+          <div class="navigation-section">
+            <a href="#" class="nav-link">درباره شرکت</a>
+            <a href="#" class="nav-link">خدمات ما</a>
+            <a href="#" class="nav-link">فرصت‌های شغلی</a>
+            <a href="#" class="nav-link">تماس با ما</a>
+            <a href="#" class="nav-link">پشتیبانی</a>
+            <a href="#" class="nav-link">اخبار شرکت</a>
+          </div>
+        </div>
+
+        <!-- بخش پایین فوتر -->
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <div class="legal-links">
+              <a href="#" class="legal-link">شرایط استفاده</a>
+              <a href="#" class="legal-link">حریم خصوصی</a>
+              <a href="#" class="legal-link">قوانین و مقررات</a>
+              <a href="#" class="legal-link">درباره ما</a>
+              <a href="#" class="legal-link">تماس با ما</a>
+              <a href="#" class="legal-link">سوالات متداول</a>
+            </div>
+            <p class="copyright">©۱۴۰۲ شرکت نمونه. تمامی حقوق محفوظ است.</p>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </body>
+</html>

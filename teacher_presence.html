@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>پورتال معلم - حضور و غیاب</title>
+
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="public/css.css" />
+  </head>
+  <body>
+    <section>
+      <nav
+        class="navbar navbar-expand-lg bg-body-tertiary rounded"
+        aria-label="Eleventh navbar example"
+      >
+        <div class="container">
+          <a class="btn btn-custom mx-2 d-flex align-items-center" href="#">
+            <span class="fw-bold"> ویرایش پروفایل </span>
+            <i class="bi bi-person-circle mx-2"></i>
+          </a>
+          <a class="btn btn-custom" href="#">
+            <span class="fw-bold">خروج</span>
+            <i class="bi bi-box-arrow-left mx-2"></i>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample09"
+            aria-controls="navbarsExample09"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <p class="fs-5 fw-bold text-dark mx-5 my-0">طاها رحمانی</p>
+          <div class="collapse navbar-collapse" id="navbarsExample09">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item mx-3">
+                <a
+                  class="nav-link active fs-5 fw-bold"
+                  aria-current="page"
+                  href="#"
+                  >صفحه اصلی</a
+                >
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link fs-5 fw-bold" href="#">تکالیف</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link fs-5 fw-bold">فیلم های آموزشی</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link fs-5 fw-bold">نمرات</a>
+              </li>
+
+              <li class="nav-item mx-3">
+                <a class="nav-link fs-5 fw-bold">حضور و غیاب</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+
+    <section>
+      <div class="attendance">
+        <div class="container">
+          <div class="row mt-p">
+            <h2 class="text-center mb-4">مدیریت حضور و غیاب</h2>
+            <p class="text-center mb-4">
+              در این بخش می‌توانید حضور دانش‌آموزان را به‌صورت دستی یا با پردازش
+              تصویر ثبت کنید. نتایج به‌طور خودکار ذخیره می‌شود.
+            </p>
+            <p class="text-center text-danger mb-4">
+              📌 نکات مهم: برای روش پردازش تصویر، از عکس‌های باکیفیت استفاده
+              کنید و قوانین حریم خصوصی را رعایت کنید.
+            </p>
+
+            <!-- تب‌ها برای روش‌ها -->
+            <ul class="nav nav-tabs mb-4 attendance_direction">
+              <li class="nav-item px-1">
+                <a class="nav-link active px-4" href="#manual" data-bs-toggle="tab"
+                  >روش دستی</a
+                >
+              </li>
+              <li class="nav-itemp px-1">
+                <a class="nav-link px-4" href="#image" data-bs-toggle="tab"
+                  >پردازش تصویر</a
+                >
+              </li>
+              <li class="nav-itemp px-1">
+                <a class="nav-link px-4" href="#ful_image" data-bs-toggle="tab"
+                  >پردازش تصویر کل کلاس</a
+                >
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- روش دستی -->
+              <div id="manual" class="tab-pane fade show active">
+                <div class="attendance-card">
+                  <h5 class="attendance-title mb-3">
+                    لیست دانش‌آموزان - کلاس سوم الف
+                  </h5>
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th class="text-center">ردیف</th>
+                          <th class="text-center">نام</th>
+                          <th class="text-center">حضور</th>
+                          <th class="text-center">وضعیت</th>
+                          <th class="text-center">یادداشت</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      
+                        <tr>
+                          <td class="text-center">1</td>
+                          <td class="text-center">سارا محمدی</td>
+                          <td class="text-center">
+                              <a href="#" class="btn btn-custom btn-sm">حاضر</a>
+                                <a href="#" class="btn btn-custom btn-sm">غایب</a>
+                           
+                          </td>
+                           <td class="text-center">غایب</td>
+                          <td class="text-center">
+                            <form action="" class="d-flex align-items-center">
+                              <textarea name="" id="" placeholder="دلیل غیاب" class="form-control"></textarea>
+                              <button type="submit" class="btn btn-custom mx-1" >ثبت</button>
+                            </form>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">2</td>
+                          <td class="text-center">سارا محمدی</td>
+                          <td class="text-center">
+                              <a href="#" class="btn btn-custom btn-sm">حاضر</a>
+                                <a href="#" class="btn btn-custom btn-sm">غایب</a>
+                           
+                          </td>
+                           <td class="text-center">غایب</td>
+                          <td class="text-center">
+                            <form action="" class="d-flex align-items-center">
+                              <textarea name="" id="" placeholder="دلیل غیاب" class="form-control"></textarea>
+                              <button type="submit" class="btn btn-custom mx-1" >ثبت</button>
+                            </form>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-center">3</td>
+                          <td class="text-center">سارا محمدی</td>
+                          <td class="text-center">
+                              <a href="#" class="btn btn-custom btn-sm">حاضر</a>
+                                <a href="#" class="btn btn-custom btn-sm">غایب</a>
+                           
+                          </td>
+                           <td class="text-center">چیزی ثبت نشده</td>
+                          <td class="text-center">
+                            <form action="" class="d-flex align-items-center">
+                              <textarea name="" id="" placeholder="دلیل غیاب" class="form-control"></textarea>
+                              <button type="submit" class="btn btn-custom mx-1" >ثبت</button>
+                            </form>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <button class="btn btn-custom mt-2">ثبت حضور</button>
+                </div>
+              </div>
+
+              <!-- پردازش تصویر -->
+              <div id="image" class="tab-pane fade">
+                <div class="attendance-card">
+                  <h5 class="attendance-title mb-3">
+                    آپلود عکس کلاس برای تشخیص خودکار
+                  </h5>
+                  <form>
+                    <div class="mb-3">
+                      <input
+                        type="file"
+                        class="form-control"
+                        accept="image/*"
+                        required
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-custom">
+                      پردازش و ثبت حضور
+                    </button>
+                  </form>
+                  <p class="mt-3">
+                    نتایج: 8 دانش‌آموز شناسایی‌شده به‌عنوان حاضر (از 10 نفر).
+                  </p>
+                </div>
+              </div>
+              <!-- پردازش تصویر -->
+              <div id="ful_image" class="tab-pane fade">
+                <div class="attendance-card">
+                  <h5 class="attendance-title mb-3">
+                    آپلود عکس کلاس برای تشخیص خودکار
+                  </h5>
+                  <form>
+                    <div class="mb-3">
+                      <input
+                        type="file"
+                        class="form-control"
+                        accept="image/*"
+                        required
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-custom">
+                      پردازش و ثبت حضور
+                    </button>
+                  </form>
+                  <p class="mt-3">
+                    نتایج: 8 دانش‌آموز شناسایی‌شده به‌عنوان حاضر (از 10 نفر).
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================= footer ============================================= -->
+    <section>
+      <footer class="modern-footer">
+        <div class="footer-container">
+          <!-- ستون اول: لوگو برند -->
+          <div class="brand-section">
+            <div class="brand-logo">
+              <div class="logo-icon">
+                <svg
+                  width="60"
+                  height="60"
+                  viewBox="0 0 60 60"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="30"
+                    cy="30"
+                    r="28"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                  <path
+                    d="M20 25 L30 35 L40 25"
+                    stroke="#ffffff"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle cx="30" cy="20" r="3" fill="#ffffff" />
+                  <circle cx="30" cy="40" r="3" fill="#ffffff" />
+                </svg>
+              </div>
+              <h3>شرکت نمونه</h3>
+              <p>ارائه خدمات با کیفیت و نوآوری در زمینه تکنولوژی</p>
+            </div>
+          </div>
+
+          <!-- ستون دوم: خبرنامه -->
+          <div class="newsletter-section">
+            <h5>خبرنامه شرکت را دریافت کنید</h5>
+            <div class="email-subscription">
+              <input
+                type="email"
+                placeholder="ایمیل خود را وارد کنید"
+                class="email-input"
+              />
+              <button class="subscribe-btn">عضویت</button>
+            </div>
+            <div class="social-icons">
+              <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="bi bi-pinterest"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+            </div>
+          </div>
+
+          <!-- ستون سوم: لینک‌های ناوبری -->
+          <div class="navigation-section">
+            <a href="#" class="nav-link">درباره شرکت</a>
+            <a href="#" class="nav-link">خدمات ما</a>
+            <a href="#" class="nav-link">فرصت‌های شغلی</a>
+            <a href="#" class="nav-link">تماس با ما</a>
+            <a href="#" class="nav-link">پشتیبانی</a>
+            <a href="#" class="nav-link">اخبار شرکت</a>
+          </div>
+        </div>
+
+        <!-- بخش پایین فوتر -->
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <div class="legal-links">
+              <a href="#" class="legal-link">شرایط استفاده</a>
+              <a href="#" class="legal-link">حریم خصوصی</a>
+              <a href="#" class="legal-link">قوانین و مقررات</a>
+              <a href="#" class="legal-link">درباره ما</a>
+              <a href="#" class="legal-link">تماس با ما</a>
+              <a href="#" class="legal-link">سوالات متداول</a>
+            </div>
+            <p class="copyright">©۱۴۰۲ شرکت نمونه. تمامی حقوق محفوظ است.</p>
+          </div>
+        </div>
+      </footer>
+    </section>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

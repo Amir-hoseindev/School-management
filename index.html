@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>School Admission</title>
+
+    <!-- Bootstrap CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="public/css.css" />
+    <style>
+      .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        border: 0.5rem solid var(--secend-color);
+        border-radius: 5rem;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s;
+      }
+      .swiper-slide:hover {
+        box-shadow: 0 0 10px var(--secend-color);
+        transition: all 0.5s;
+      }
+      .swiper-slide:hover img {
+        transition: all 0.5s;
+        transform: scale(1.1);
+      }
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s;
+      }
+
+      .swiper {
+        width: 100%;
+        height: 300px;
+        margin: 20px auto;
+      }
+
+      .append-buttons {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .append-buttons button {
+        display: inline-block;
+        cursor: pointer;
+        border: 1px solid #007aff;
+        color: #007aff;
+        text-decoration: none;
+        padding: 4px 10px;
+        border-radius: 4px;
+        margin: 0 10px;
+        font-size: 13px;
+      }
+
+      .content-wrapper {
+        min-height: 60vh;
+        padding: 2rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <nav
+        class="navbar navbar-expand-lg bg-body-tertiary rounded"
+        aria-label="Eleventh navbar example"
+      >
+        <div class="container">
+          <a class="btn btn-custom mx-2" href="#">ورود دانش آموز</a>
+          <a class="btn btn-custom" href="#">ورود اساتید</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarsExample09"
+            aria-controls="navbarsExample09"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarsExample09">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item mx-3">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >صفحه اصلی</a
+                >
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link" href="#">درباره ما</a>
+              </li>
+              <li class="nav-item mx-3">
+                <a class="nav-link">اساتید</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <section>
+      <div class="hero-section">
+        <div class="container_fluid">
+          <div class="row align-items-center">
+            <i class="bi bi-rocket-takeoff rocket-icon"></i>
+            <!-- Left: Circular Image -->
+            <div class="col-md-6 text-center mb-4 mb-md-0">
+              <div class="circle">
+                <div class="circle-img">
+                  <img
+                    src="image/IMG_20250828_110649_981.jpg"
+                    alt="عکس کلاس"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Text Content -->
+            <div class="col-md-6">
+              <h1 class="hero-title">
+                Nurturing Bright Minds for a Brighter Tomorrow
+              </h1>
+              <p class="hero-subtext">
+                Early education designed to inspire curiosity, creativity, and
+                confidence
+              </p>
+              <button class="btn btn-custom">Admission Now →</button>
+            </div>
+            <div class="hero-section-curve">
+              <svg
+                viewBox="0 0 500 150"
+                preserveAspectRatio="none"
+                style="height: 100%; width: 100%"
+              >
+                <path
+                  d="M31.82,178.62 C150.00,149.60 271.10,-93.00 500.00,49.85 L500.00,149.60 L-0.00,149.60 Z"
+                  style="stroke: none; fill: #1a3c5e"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Decorative Rocket -->
+      <i class="fas fa-rocket rocket-icon"></i>
+
+      <!-- Decorative Plus Signs -->
+      <div class="plus-sign plus1">+</div>
+      <div class="plus-sign plus2">+</div>
+      <div class="plus-sign plus4">+</div>
+      <div class="plus-sign plus3">+</div>
+
+      <!-- Decorative Wavy Line (SVG) -->
+    </section>
+    <section class="School">
+      <div class="container">
+        <div class="row py-5 position-relative">
+          <div class="col-md-4">
+            <div class="School_description">
+              <div class="School_description-content">
+                <img src="image/checklist.png" alt="آیکن چک لیست" />
+                <div class="School_description-content-text">
+                  <h4>کاوشگران کوچک</h4>
+                  <p>برای کلاس های اکتشاف و علوم کلیک کنید</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="School_description">
+              <div class="School_description-content">
+                <img src="image/capacity.png" alt="آیکن کاوشگران کوچک" />
+                <div class="School_description-content-text">
+                  <h4>کاوشگران کوچک</h4>
+                  <p>برای کلاس های اکتشاف و علوم کلیک کنید</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="School_description">
+              <div class="School_description-content">
+                <img src="image/great-idea.png" alt=" آیکن کاوشگران کوچک" />
+                <div class="School_description-content-text">
+                  <h4>کاوشگران کوچک</h4>
+                  <p>برای کلاس های اکتشاف و علوم کلیک کنید</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="School_img" src="image/planet.png" alt="آیکن سیاره" />
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="about_us">
+        <div class="container">
+          <div class="row d-flex align-items-center">
+            <div class="col-md-6">
+              <div class="about_us-box">
+                <div class="about_us-box-img1">
+                  <img
+                    src="image/photo_2025-08-30_17-45-33.jpg"
+                    class="about_us-box-img1-1"
+                    alt="عکس مدرسه"
+                  />
+                </div>
+                <div class="about_us-box-img2">
+                  <img
+                    src="image/photo_2025-08-30_17-45-35.jpg"
+                    alt="عکس کلاس"
+                    class="about_us-box-img2-2"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="about_us-text">
+                <h1>بیشتر بدانید</h1>
+                <h4>با ما، آینده کودکان را با خلاقیت و شادی بسازید!</h4>
+                <p>
+                  در مهدکودک برIGHT فیوچر کیدز، ما بر این باوریم که کودکان عزیز
+                  آینده‌سازان جهان هستند. هدف ما فراهم کردن محیطی امن، شاد و
+                  الهام‌بخش است تا کودکان بتوانند از طریق بازی، خلاقیت و اکتشاف،
+                  مهارت‌های اساسی را بیاموزند.
+                  <br />
+                  با تیمی از مربیان با تجربه و passionate، برنامه‌های آموزشی ما
+                  ترکیبی از روش‌های سنتی و نوین را ارائه می‌دهد که رشد شناختی،
+                  اجتماعی و عاطفی کودکان را پشتیبانی می‌کند. ما با استفاده از
+                  ابزارهای دیجیتال پیشرفته، کلاس‌های خلاقانه و محیطی هوشمند، به
+                  کودکان کمک می‌کنیم تا با اعتمادبه‌نفس و کنجکاوی به کشف دنیای
+                  اطراف خود بپردازند. مهدکودک ما نه تنها مکانی برای یادگیری،
+                  بلکه فضایی برای پرورش استعدادها و رویاهاست. با ما همراه شوید
+                  تا با هم آینده‌ای روشن برای کودکان بسازیم!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="techers">
+        <div class="container py-5">
+          <div class="row">
+            <h2 class="techers_name">معلمان</h2>
+            <p class="techers_Slogan">بهترین معلم ها در اینجا هستند</p>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <!-- Swiper -->
+
+              <div #swiperRef="" class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="image/photo_2025-08-31_00-33-47.jpg" alt="معلم موسوی" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="image/photo_2025-08-31_00-33-43.jpg" alt="معلم علوی" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="image/photo_2025-08-31_00-33-37.jpg" alt="معلم حسینی" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="image/photo_2025-08-31_00-33-31.jpg" alt="معلم محمدی" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="image/photo_2025-08-30_17-45-35.jpg" alt="معلم نریمانی" />
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <footer class="modern-footer">
+        <div class="footer-container">
+          <!-- ستون اول: لوگو برند -->
+          <div class="brand-section">
+            <div class="brand-logo">
+              <div class="logo-icon">
+                <svg
+                  width="60"
+                  height="60"
+                  viewBox="0 0 60 60"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="30"
+                    cy="30"
+                    r="28"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    fill="none"
+                  />
+                  <path
+                    d="M20 25 L30 35 L40 25"
+                    stroke="#ffffff"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <circle cx="30" cy="20" r="3" fill="#ffffff" />
+                  <circle cx="30" cy="40" r="3" fill="#ffffff" />
+                </svg>
+              </div>
+              <h3>شرکت نمونه</h3>
+              <p>ارائه خدمات با کیفیت و نوآوری در زمینه تکنولوژی</p>
+            </div>
+          </div>
+
+          <!-- ستون دوم: خبرنامه -->
+          <div class="newsletter-section">
+            <h5>خبرنامه شرکت را دریافت کنید</h5>
+            <div class="email-subscription">
+              <input
+                type="email"
+                placeholder="ایمیل خود را وارد کنید"
+                class="email-input"
+              />
+              <button class="subscribe-btn">عضویت</button>
+            </div>
+            <div class="social-icons">
+              <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="bi bi-pinterest"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon"><i class="bi bi-tiktok"></i></a>
+            </div>
+          </div>
+
+          <!-- ستون سوم: لینک‌های ناوبری -->
+          <div class="navigation-section">
+            <a href="#" class="nav-link">درباره شرکت</a>
+            <a href="#" class="nav-link">خدمات ما</a>
+            <a href="#" class="nav-link">فرصت‌های شغلی</a>
+            <a href="#" class="nav-link">تماس با ما</a>
+            <a href="#" class="nav-link">پشتیبانی</a>
+            <a href="#" class="nav-link">اخبار شرکت</a>
+          </div>
+        </div>
+
+        <!-- بخش پایین فوتر -->
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <div class="legal-links">
+              <a href="#" class="legal-link">شرایط استفاده</a>
+              <a href="#" class="legal-link">حریم خصوصی</a>
+              <a href="#" class="legal-link">قوانین و مقررات</a>
+              <a href="#" class="legal-link">درباره ما</a>
+              <a href="#" class="legal-link">تماس با ما</a>
+              <a href="#" class="legal-link">سوالات متداول</a>
+            </div>
+            <p class="copyright">©۱۴۰۲ شرکت نمونه. تمامی حقوق محفوظ است.</p>
+          </div>
+        </div>
+      </footer>
+    </section>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        centeredSlides: true,
+        spaceBetween: 30,
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      var appendNumber = 4;
+      var prependNumber = 1;
+      document
+        .querySelector(".prepend-2-slides")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          swiper.prependSlide([
+            '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
+            '<div class="swiper-slide">Slide ' + --prependNumber + "</div>",
+          ]);
+        });
+      document
+        .querySelector(".prepend-slide")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          swiper.prependSlide(
+            '<div class="swiper-slide">Slide ' + --prependNumber + "</div>"
+          );
+        });
+      document
+        .querySelector(".append-slide")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          swiper.appendSlide(
+            '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>"
+          );
+        });
+      document
+        .querySelector(".append-2-slides")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          swiper.appendSlide([
+            '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
+            '<div class="swiper-slide">Slide ' + ++appendNumber + "</div>",
+          ]);
+        });
+    </script>
+  </body>
+</html>
