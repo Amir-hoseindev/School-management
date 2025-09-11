@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>تکالیف</title>
+    <title>فیلم های درس فارسی</title>
 
     <!-- Bootstrap CDN -->
     <link
@@ -26,10 +26,10 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="public/css.css" />
+    <link rel="stylesheet" href="../public/css.css" />
   </head>
   <body>
-    <section>
+ <section>
       <nav
         class="navbar navbar-expand-lg bg-body-tertiary rounded"
         aria-label="Eleventh navbar example"
@@ -39,10 +39,7 @@
             <span class="fw-bold"> ویرایش پروفایل </span>
             <i class="bi bi-person-circle mx-2"></i>
           </a>
-          <a class="btn btn-custom" href="#">
-            <span class="fw-bold">خروج</span>
-            <i class="bi bi-box-arrow-left mx-2"></i>
-          </a>
+           <p class="fs-5 fw-bold text-dark mx-2 mx-xl-5 my-0">طاها رحمانی</p>
           <button
             class="navbar-toggler"
             type="button"
@@ -54,10 +51,10 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <p class="fs-5 fw-bold text-dark mx-5 my-0">طاها رحمانی</p>
+         
           <div class="collapse navbar-collapse" id="navbarsExample09">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a
                   class="nav-link active fs-5 fw-bold"
                   aria-current="page"
@@ -65,18 +62,20 @@
                   >صفحه اصلی</a
                 >
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold" href="#">تکالیف</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">فیلم های آموزشی</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">نمرات</a>
               </li>
-
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">حضور و غیاب</a>
+              </li>
+              <li class="nav-item mx-xxl-3 mx-1">
+                <a class="nav-link fs-5 fw-bold">خروج</a>
               </li>
             </ul>
           </div>
@@ -85,170 +84,89 @@
     </section>
 
     <section>
-      <div class="teacher_assignment">
-        <div class="container-fluid">
-          <div class="row d-flex align-items-center">
-            <div class="col-md-7 position-relative">
-              <div class="medicine_content">
-                <img
-                  src="image/shining.png"
-                  class="medicine_content-img1"
-                  alt="عکس ستاره"
-                />
-                <p class="fs-1 fw-bold text-center">مدیریت تکالیف</p>
-                <p class="fs-4 text-center px-5">
-                  در این بخش می‌توانید تکالیف دانش‌آموزان را تعریف، مدیریت، و
-                  ارزیابی کنید. اطلاعات به‌روز برای پیگیری بهتر ارائه می‌شود.
-                </p>
+      <div class="teacher_internalPageMovie">
+        <div class="container mt-5">
+          <h2 class="text-center fw-bold mb-4 teacher_internalPageMovie-title">
+            مدیریت فیلم‌های آموزشی
+          </h2>
 
-                <p class="fs-4 text-center">
-                  <span class="fs-3 fw-bold">📌 نکات مهم: </span> لطفاً سررسیدها
-                  را با دقت تنظیم کنید تا دانش‌آموزان فرصت کافی داشته باشند.
-                </p>
-
-                <img
-                  src="image/shining.png"
-                  class="medicine_content-img2"
-                  alt="عکس ستاره"
-                />
-                <img
-                  src="image/rotated-right-arrow-with-broken-line.png"
-                  class="teacher_assignment-icon-line"
-                  alt="عکس خط"
-                />
-                <img
-                  src="image/assignment (1).png"
-                  class="teacher_assignment-icon-assignment1"
-                  alt="عکس تمارین"
-                />
-              </div>
-            </div>
-
-            <div class="col-md-5">
-              <div class="medicine_image">
-                <div class="medicine_image-img">
-                  <img
-                    src="image/photo_2025-09-03_20-31-57.jpg"
-                    alt="عکس دانش‌آموزان"
+          <!-- لیست ویدیوها -->
+          <div class="row">
+            <div class="col-lg-4 col-md-6 gy-4">
+              <div class="teacher_internalPageMovie-video-card">
+                <video controls class="card-img-top" preload="metadata">
+                  <source
+                    src="../movie/video_2025-09-06_09-29-03.mp4"
+                    type="video/mp4"
                   />
+                </video>
+                <h5 class="teacher_internalPageMovie-video-title mt-2">
+                  آموزش جمع و تفریق
+                </h5>
+                <p>تاریخ: 05/09/2025 | مدت: 15 دقیقه | درس: ریاضی</p>
+                <p>توضیحات: آموزش مفاهیم پایه‌ای جمع و تفریق برای پایه سوم.</p>
+                <div class="mt-2">
+                  <a href="#" class="btn btn-custom btn-sm me-2">ویرایش</a>
+                  <a
+                    href="../movie/video_2025-09-06_09-29-03.mp4"
+                    download
+                    class="btn btn-custom btn-sm me-2"
+                    >دانلود</a
+                  >
+                  <a href="#" class="btn btn-custom btn-sm">حذف</a>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="teacher_movie py-2">
-        <div class="container">
-          <div class="row g-2 position-relative">
-            <img
-              src="image/moon (1).png"
-              class="teacher_movie-moon1"
-              alt="عکس ماه"
-            />
-            <div class="col-6 col-lg-4">
-              <a class="fild_box btn px-1">
-                <div class="fild_box-content">
-                  <img
-                    src="image/quran.png"
-                    class="img-fuind"
-                    alt="آموزش قرآن"
+            <div class="col-lg-4 col-md-6 gy-4">
+              <div class="teacher_internalPageMovie-video-card">
+                <video controls class="card-img-top" preload="metadata">
+                  <source
+                    src="../movie/video_2025-09-06_09-29-03.mp4"
+                    type="video/mp4"
                   />
-                  <p>آموزش قرآن</p>
+                </video>
+                <h5 class="teacher_internalPageMovie-video-title mt-2">
+                  آموزش نگارش فارسی
+                </h5>
+                <p>تاریخ: 04/09/2025 | مدت: 10 دقیقه | درس: فارسی</p>
+                <p>توضیحات: آموزش نوشتن انشای کوتاه برای دانش‌آموزان.</p>
+                <div class="mt-2">
+                  <a href="#" class="btn btn-custom btn-sm me-2">ویرایش</a>
+                  <a
+                    href="../movie/video_2025-09-06_09-29-03.mp4"
+                    download
+                    class="btn btn-custom btn-sm me-2"
+                    >دانلود</a
+                  >
+                  <a href="#" class="btn btn-custom btn-sm">حذف</a>
                 </div>
-              </a>
+              </div>
             </div>
-            <div class="col-6 col-lg-4">
-              <a class="fild_box btn px-1">
-                <div class="fild_box-content">
-                  <img
-                    src="image/islamic.png"
-                    class="img-fuind"
-                    alt="هدیه های آسمانی"
+            <div class="col-lg-4 col-md-6 gy-4">
+              <div class="teacher_internalPageMovie-video-card">
+                <video controls class="card-img-top" preload="metadata">
+                  <source
+                    src="../movie/video_2025-09-06_09-29-03.mp4"
+                    type="video/mp4"
                   />
-                  <p>هدیه های آسمانی</p>
+                </video>
+                <h5 class="teacher_internalPageMovie-video-title mt-2">
+                  آموزش نگارش فارسی
+                </h5>
+                <p>تاریخ: 04/09/2025 | مدت: 10 دقیقه | درس: فارسی</p>
+                <p>توضیحات: آموزش نوشتن انشای کوتاه برای دانش‌آموزان.</p>
+                <div class="mt-2">
+                  <a href="#" class="btn btn-custom btn-sm me-2">ویرایش</a>
+                  <a
+                    href="../movie/video_2025-09-06_09-29-03.mp4"
+                    download
+                    class="btn btn-custom btn-sm me-2"
+                    >دانلود</a
+                  >
+                  <a href="#" class="btn btn-custom btn-sm">حذف</a>
                 </div>
-              </a>
+              </div>
             </div>
-            <div class="col-6 col-lg-4">
-              <a class="fild_box btn px-1">
-                <div class="fild_box-content">
-                  <img src="image/writing.png" class="img-fuind" alt="فارسی" />
-                  <p>فارسی</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-6 col-lg-4">
-              <a class="fild_box btn px-1">
-                <div class="fild_box-content">
-                  <img
-                    src="image/calculating.png"
-                    class="img-fuind"
-                    alt="ریاضی"
-                  />
-                  <p>ریاضی</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-6 col-lg-4">
-              <a class="fild_box btn px-1">
-                <div class="fild_box-content">
-                  <img
-                    src="image/microscope.png"
-                    class="img-fuind"
-                    alt="علوم تجربی"
-                  />
-                  <p>علوم تجربی</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-6 col-lg-4">
-              <a href="index.html" class="fild_box btn px-1">
-                <div class="fild_box-content">
-                  <img src="image/art.png" class="img-fuind" alt="هنر" />
-                  <p>هنر</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-6 col-lg-4">
-              <a href="index.html" class="fild_box btn px-1">
-                <div class="fild_box-content">
-                  <img src="image/sports.png" class="img-fuind" alt="ورزش" />
-                  <p>ورزش</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-6 col-lg-4">
-              <a href="index.html" class="fild_box btn px-1">
-                <div class="fild_box-content">
-                  <img
-                    src="image/puzzle.png"
-                    class="img-fuind"
-                    alt="کار و فناوری"
-                  />
-                  <p>کار و فناوری</p>
-                </div>
-              </a>
-            </div>
-            <div class="col-6 col-lg-4">
-              <a href="index.html" class="fild_box btn px-1">
-                <div class="fild_box-content">
-                  <img
-                    src="image/globe.png"
-                    class="img-fuind"
-                    alt="مطالعات اجتماعی"
-                  />
-                  <p>مطالعات اجتماعی</p>
-                </div>
-              </a>
-            </div>
-            <img
-              src="image/moon.png"
-              class="teacher_movie-moon"
-              alt="عکس ماه"
-            />
           </div>
         </div>
       </div>

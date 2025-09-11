@@ -136,7 +136,7 @@ body {
   font-size: 1.5rem;
 }
 .plus3 {
-  bottom: 8%;
+  bottom: -8%;
   left: 8%;
   font-size: 1.5rem;
 }
@@ -149,25 +149,6 @@ body {
   width: 100%;
   height: 120px;
 }
-
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 28px;
-    text-align: center;
-  }
-  .hero-subtext {
-    text-align: center;
-  }
-  .circle-img {
-    width: 280px;
-    height: 280px;
-  }
-  .rocket-icon {
-    right: 20px;
-    top: 20px;
-  }
-}
-
 /* =========================================== School_description ================================= */
 .School {
   background-color: var(--four-color);
@@ -714,7 +695,7 @@ body {
   }
 }
 
-/* ============================================================ Parents folder  ============================================================ */
+/* =========================================== Parents folder  ============================================================ */
 .swiper_clouds {
   position: absolute;
   top: 1%;
@@ -820,16 +801,16 @@ body {
 
 .fild_moon {
   position: absolute;
-  left: -5%;
-  bottom: 5%;
-  width: 10%;
+  right: 1%;
+  bottom: 1%;
+  width: 7%;
 }
 .fild_fly {
   position: absolute;
-  right: -5%;
-  top: 5%;
+  left: 1%;
+  top: 30%;
   width: 6%;
-  transform: rotateZ(35deg);
+  transform: rotateZ(-35deg);
 }
 
 /* ============================================= teacher_folder ============================================= */
@@ -864,7 +845,10 @@ body {
 .teacher_welcome-image-img img {
   width: 100%;
 }
-
+.teacher_folder-arc {
+  height: 150px;
+  overflow: hidden;
+}
 /* ========================================== medicine ========================================== */
 .medicine {
   background-color: var(--secend-color);
@@ -964,8 +948,8 @@ body {
 .pill_img1 {
   width: 6rem;
   position: absolute;
-  top: -5%;
-  left: -8%;
+  top: -10%;
+  left: -5%;
 }
 .pill_img2 {
   width: 15rem;
@@ -1036,23 +1020,18 @@ body {
 
 .student_film-movie {
   position: absolute;
-  right: -1%;
+  left: 23%;
   bottom: 5%;
   width: 12%;
 }
 .student_film-fly {
   position: absolute;
-  left: -5%;
+  left: 4%;
   top: 5%;
   width: 7%;
   transform: rotateZ(-35deg);
 }
-.student_film-school {
-  position: absolute;
-  left: -5%;
-  bottom: 5%;
-  width: 7%;
-}
+
 .student_film .card {
   direction: rtl;
 }
@@ -1139,12 +1118,7 @@ body {
   right: 10%;
   width: 7rem;
 }
-.teacher_movie-moon {
-  position: absolute;
-  bottom: 50%;
-  right: -7%;
-  width: 5rem;
-}
+
 .teacher_movie-moon1 {
   position: absolute;
   bottom: 2%;
@@ -1192,8 +1166,8 @@ body {
 }
 .parting_time-sports {
   position: absolute;
-  bottom: -30%;
-  right: 5%;
+  bottom: -20%;
+  right: 0%;
   width: 5rem;
 }
 /* ============================================= teacher_medicine ============================================= */
@@ -1213,15 +1187,15 @@ body {
 }
 .teacher_assignment-icon-assignment1 {
   position: absolute;
-  bottom: -70%;
+  bottom: -60%;
   left: 10%;
-  width: 7rem;
+  width: 6.5rem;
 }
 .teacher_assignment-icon-line {
   position: absolute;
-  bottom: -80%;
+  bottom: -60%;
   right: 10%;
-  width: 7rem;
+  width: 6.5rem;
   transform: rotate(180deg);
 }
 /* ==================================== teacher_assignment1 ==================================== */
@@ -1240,18 +1214,17 @@ body {
 }
 
 /* ====================================================== attendance ====================================================== */
-.attendance{
+.attendance {
   background-color: var(--four-color);
 }
-.attendance_direction{
+.attendance_direction {
   direction: rtl;
 }
-.attendance #manual ,
-.attendance #ful_image ,
-.attendance #image
-{
+.attendance #manual,
+.attendance #ful_image,
+.attendance #image {
   direction: rtl;
-} 
+}
 .attendance-card {
   background-color: var(--five-color);
   border-radius: 8px;
@@ -1264,3 +1237,654 @@ body {
   font-weight: 600;
 }
 
+/* ========================================== student_profile ========================================== */
+.student_profile {
+  display: flex;
+  justify-content: center;
+  margin: 0.8rem 0 1.2rem;
+}
+.student_profile img {
+  width: 15rem;
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--four-color);
+}
+
+@media (max-width: 1300px) and (min-width: 1100px) {
+  .circle {
+    padding: 1.2rem;
+  }
+  .plus2 {
+    bottom: 20%;
+    right: 30%;
+    font-size: 2rem;
+  }
+  .plus4 {
+    bottom: 19%;
+    right: 29%;
+    font-size: 1rem;
+  }
+  .pill_img2 {
+    width: 12rem;
+  }
+  .pill_img3 {
+    width: 8rem;
+  }
+  .parting_time-art {
+    left: -2%;
+    width: 3.5rem;
+  }
+  .parting_time-sports {
+    right: -3%;
+    width: 4.5rem;
+  }
+  .teacher_welcome-content-img1 {
+    left: 7%;
+  }
+  .teacher_welcome-content-img2 {
+    right: 7%;
+  }
+  .teacher_assignment-icon-assignment1 {
+    bottom: -30%;
+    left: 10%;
+    width: 5.5rem;
+  }
+  .teacher_assignment-icon-line {
+    bottom: -30%;
+    right: 10%;
+    width: 5.5rem;
+  }
+  .teacher_movie-form-movie1 {
+    width: 12rem;
+  }
+  .teacher_movie-form-line2 {
+    width: 6rem;
+    transform: rotate(-150deg);
+  }
+  .teacher_movie-form-car {
+    width: 12rem;
+  }
+  .teacher_movie-form-line1 {
+    width: 5rem;
+  }
+  .teacher_movie-icon-school {
+    bottom: -40%;
+    left: 0%;
+    width: 4.5rem;
+  }
+  .teacher_movie-icon-movie {
+    bottom: -40%;
+    right: 0%;
+    width: 6rem;
+  }
+}
+@media (max-width: 1300px) and (min-width: 992px) {
+  .fild_moon {
+    width: 8%;
+  }
+  .fild_fly {
+    width: 8%;
+  }
+}
+@media (max-width: 1100px) and (min-width: 900px) {
+  .circle {
+    padding: 1.2rem;
+  }
+  .circle-img {
+    width: 450px;
+    height: 400px;
+  }
+  .hero-section-curve {
+    height: 150px;
+    width: 75%;
+  }
+  .plus2 {
+    bottom: 16%;
+    right: 20%;
+    font-size: 1.6rem;
+  }
+  .plus4 {
+    bottom: 15%;
+    right: 19%;
+    font-size: 0.8rem;
+  }
+  .plus1 {
+    top: 35%;
+  }
+  .rocket-icon {
+    top: 20%;
+    font-size: 5rem;
+  }
+  .medicine_content-img1 {
+    width: 2.5rem;
+  }
+  .medicine_content-img2 {
+    width: 2.5rem;
+  }
+  .medicine_content-img3 {
+    width: 5rem;
+  }
+  .medicine_content-img4 {
+    bottom: -40%;
+    width: 4rem;
+  }
+  .pill_img2 {
+    width: 10rem;
+    right: 0%;
+  }
+  .pill_img3 {
+    width: 7rem;
+    left: 5%;
+  }
+  .parting_time-art {
+    left: -2%;
+    width: 3rem;
+    bottom: -10%;
+  }
+  .parting_time-sports {
+    right: -10%;
+    width: 4rem;
+    bottom: -10%;
+  }
+  .teacher_assignment-icon-assignment1 {
+    bottom: -15%;
+    left: 5%;
+    width: 4.5rem;
+  }
+  .teacher_assignment-icon-line {
+    bottom: -15%;
+    right: 5%;
+    width: 4.5rem;
+  }
+  .teacher_movie-form-movie1 {
+    width: 9rem;
+  }
+  .teacher_movie-form-line2 {
+    width: 6rem;
+    transform: rotate(-150deg);
+  }
+  .teacher_movie-form-car {
+    width: 9rem;
+  }
+  .teacher_movie-form-line1 {
+    width: 5rem;
+  }
+  .teacher_welcome-content-img1 {
+    left: 0%;
+    width: 2rem;
+  }
+  .teacher_welcome-content-img2 {
+    right: 0%;
+    width: 2rem;
+  }
+  .teacher_movie-icon-school {
+    bottom: 0%;
+    left: -8%;
+    width: 3.5rem;
+  }
+  .teacher_movie-icon-movie {
+    bottom: 0%;
+    right: -12%;
+    width: 4rem;
+  }
+}
+@media (max-width: 992px) and (min-width: 768px) {
+  .student_film-movie {
+    display: none;
+  }
+  .student_film-fly {
+    left: 4%;
+    top: 5%;
+    width: 15%;
+  }
+  .fild_moon {
+    width: 10%;
+    right: 65%;
+    bottom: 5%;
+  }
+  .fild_fly {
+    width: 8%;
+  }
+  .medicine_content-img1 {
+    width: 2.2rem;
+  }
+  .medicine_content-img2 {
+    width: 2.2rem;
+  }
+  .medicine_content-img3 {
+    width: 4rem;
+  }
+  .medicine_content-img4 {
+    bottom: -25%;
+    width: 3rem;
+  }
+  .pill_img2 {
+    width: 10rem;
+    right: -10%;
+  }
+  .pill_img3 {
+    width: 7rem;
+    left: -5%;
+  }
+  .parting_time-art {
+    left: -8%;
+    width: 2rem;
+    bottom: 0%;
+  }
+  .parting_time-sports {
+    right: -17%;
+    width: 3rem;
+    bottom: 0%;
+  }
+  .teacher_assignment-icon-assignment1 {
+    bottom: -15%;
+    left: 0%;
+    width: 3.5rem;
+  }
+  .teacher_assignment-icon-line {
+    bottom: -15%;
+    right: 0%;
+    width: 3.5rem;
+  }
+  .teacher_movie-moon1 {
+    display: none;
+  }
+  .teacher_movie-form-movie1 {
+    right: -10%;
+    width: 9rem;
+  }
+  .teacher_movie-form-line2 {
+    right: -5%;
+    width: 5rem;
+  }
+  .teacher_movie-form-car {
+    left: -5%;
+    width: 9rem;
+  }
+  .teacher_movie-form-line1 {
+    left: -5%;
+    width: 5rem;
+  }
+  .teacher_movie-icon-school {
+    bottom: 0%;
+    left: -10%;
+    width: 3rem;
+  }
+  .teacher_movie-icon-movie {
+    bottom: 0%;
+    right: -15%;
+    width: 3.5rem;
+  }
+}
+@media (max-width: 900px) and (min-width: 768px) {
+  .circle {
+    padding: 1.2rem;
+  }
+  .circle-img {
+    width: 350px;
+    height: 300px;
+  }
+  .hero-section-curve {
+    height: 150px;
+    width: 75%;
+  }
+  .plus2 {
+    bottom: 16%;
+    right: 20%;
+    font-size: 1.6rem;
+  }
+  .plus4 {
+    bottom: 15%;
+    right: 19%;
+    font-size: 0.8rem;
+  }
+  .plus1 {
+    top: 35%;
+  }
+  .rocket-icon {
+    top: 15%;
+    font-size: 5rem;
+  }
+  .medicine_content-img1 {
+    width: 1.8rem;
+    left: 10%;
+  }
+  .medicine_content-img2 {
+    width: 1.8rem;
+    right: 10%;
+  }
+  .medicine_content-img3 {
+    width: 3.5rem;
+    bottom: -20%;
+  }
+  .medicine_content-img4 {
+    bottom: -15%;
+    width: 2.5rem;
+  }
+  .teacher_welcome-content-img1 {
+    left: -5%;
+    width: 2rem;
+  }
+  .teacher_welcome-content-img2 {
+    right: -5%;
+    width: 2rem;
+  }
+}
+@media (max-width: 855px) and (min-width: 768px) {
+  .medicine_content-img3 {
+    bottom: -15%;
+  }
+  .medicine_content-img4 {
+    bottom: -10%;
+  }
+  .teacher_assignment-icon-assignment1 {
+    bottom: -5%;
+    left: -5%;
+    width: 2.5rem;
+  }
+  .teacher_assignment-icon-line {
+    bottom: -5%;
+    right: -15%;
+    width: 2.5rem;
+  }
+}
+@media (max-width: 800px) and (min-width: 768px) {
+  .medicine_content-img3 {
+    left: 100%;
+    bottom: -5%;
+  }
+  .medicine_content-img4 {
+    bottom: -5%;
+    right: 90%;
+  }
+}
+@media (max-width: 768px) and (min-width: 530px) {
+  .circle {
+    padding: 1.2rem;
+  }
+  .circle-img {
+    width: 100%;
+    height: 100%;
+  }
+  .hero-section-curve {
+    height: 100px;
+    width: 100%;
+  }
+  .plus2 {
+    display: none;
+  }
+  .plus4 {
+    display: none;
+  }
+  .plus1 {
+    display: none;
+  }
+  .plus3 {
+    display: none;
+  }
+  .rocket-icon {
+    top: 2%;
+    left: 88%;
+    font-size: 3rem;
+  }
+  .School_img {
+    width: 20%;
+    bottom: -20%;
+    right: 0%;
+  }
+  .student_film-movie {
+    display: none;
+  }
+  .student_film-fly {
+    width: 25%;
+  }
+  .fild_moon {
+    width: 10%;
+    right: 5%;
+    top: 38%;
+  }
+  .fild_fly {
+    top: 10%;
+    width: 20%;
+  }
+  .medicine_content-img3 {
+    left: 10%;
+    bottom: -20%;
+    width: 3rem;
+  }
+  .medicine_content-img4 {
+    bottom: -20%;
+    right: 10%;
+    width: 2.5rem;
+  }
+  .pill_img2 {
+    display: none;
+  }
+  .pill_img3 {
+    display: none;
+  }
+  .parting_time-art {
+    left: 0%;
+    width: 3rem;
+    bottom: 0%;
+  }
+  .parting_time-sports {
+    right: 0%;
+    width: 4rem;
+    bottom: 0%;
+  }
+  .teacher_assignment-icon-assignment1 {
+    bottom: -5%;
+    left: 0%;
+    width: 2.5rem;
+  }
+  .teacher_assignment-icon-line {
+    bottom: -5%;
+    right: 0%;
+    width: 2.5rem;
+  }
+  .teacher_movie-moon1 {
+    display: none;
+  }
+  .teacher_movie-form-movie1 {
+    display: none;
+  }
+  .teacher_movie-form-line2 {
+    display: none;
+  }
+  .teacher_movie-form-car {
+    display: none;
+  }
+  .teacher_movie-form-line1 {
+    display: none;
+  }
+  .teacher_welcome-content-img1 {
+    left: -1%;
+    width: 2rem;
+  }
+  .teacher_welcome-content-img2 {
+    right: -1%;
+    width: 2rem;
+  }
+  .teacher_folder-arc {
+    height: 100px;
+  }
+   .teacher_movie-icon-school {
+    bottom: -12%;
+    left: -5%;
+    width: 3rem;
+  }
+  .teacher_movie-icon-movie {
+    bottom: -15%;
+    right: -5%;
+    width: 3.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .parting_time-art {
+    left: -5%;
+    width: 2rem;
+    bottom: -10%;
+  }
+  .parting_time-sports {
+    right: -5%;
+    width: 3rem;
+    bottom: -15%;
+  }
+}
+@media (max-width: 576px) {
+  .pill_img1 {
+    width: 5rem;
+    top: -10%;
+    left: 0%;
+  }
+  .teacher_assignment-icon-assignment1 {
+    bottom: -5%;
+    left: 0%;
+    width: 2.5rem;
+  }
+  .teacher_assignment-icon-line {
+    bottom: -5%;
+    right: 0%;
+    width: 2.5rem;
+  }
+  .teacher_movie-moon1 {
+    display: none;
+  }
+  .teacher_folder-arc {
+    height: 50px;
+  }
+   .teacher_movie-icon-school {
+    bottom: -12%;
+    left: -5%;
+    width: 3rem;
+  }
+  .teacher_movie-icon-movie {
+    bottom: -12%;
+    right: -5%;
+    width: 3.5rem;
+  }
+}
+@media (max-width: 530px) {
+  .circle {
+    padding: 1.2rem;
+  }
+  .circle-img {
+    width: 100%;
+    height: 100%;
+  }
+  .hero-section-curve {
+    height: 70px;
+    width: 100%;
+  }
+  .plus2 {
+    display: none;
+  }
+  .plus4 {
+    display: none;
+  }
+  .plus1 {
+    display: none;
+  }
+  .plus3 {
+    display: none;
+  }
+  .rocket-icon {
+    top: 4%;
+    left: 88%;
+    font-size: 2rem;
+  }
+  .School_img {
+    width: 20%;
+    bottom: -20%;
+    right: 0%;
+  }
+  .student_film-movie {
+    display: none;
+  }
+  .student_film-fly {
+    width: 30%;
+  }
+  .swiper_clouds {
+    top: 6%;
+    width: 2.5rem;
+  }
+  .swiper_car {
+    width: 3rem;
+  }
+  .fild_moon {
+    width: 10%;
+    right: 5%;
+    top: 38%;
+  }
+  .fild_fly {
+    top: 10%;
+    width: 20%;
+  }
+  /* Button */
+  .btn-custom {
+    padding: 5px 10px;
+  }
+  .medicine_content-img3 {
+    left: 0%;
+    bottom: -18%;
+    width: 3rem;
+  }
+  .medicine_content-img4 {
+    bottom: -18%;
+    right: 0%;
+    width: 2.5rem;
+  }
+  .medicine_content-img1 {
+    width: 1.5rem;
+  }
+  .medicine_content-img2 {
+    width: 1.5rem;
+  }
+  .pill_img2 {
+    display: none;
+  }
+  .pill_img3 {
+    display: none;
+  }
+  .teacher_movie-form-movie1 {
+    display: none;
+  }
+  .teacher_movie-form-line2 {
+    display: none;
+  }
+  .teacher_movie-form-car {
+    display: none;
+  }
+  .teacher_movie-form-line1 {
+    display: none;
+  }
+  .teacher_welcome-content-img1 {
+    left: -4%;
+    width: 1.5rem;
+  }
+  .teacher_welcome-content-img2 {
+    right: -4%;
+    width: 1.5rem;
+  }
+}
+@media (max-width: 497px) {
+  .medicine_content-img3 {
+    left: 0%;
+    bottom: -10%;
+    width: 3rem;
+  }
+  .medicine_content-img4 {
+    bottom: -10%;
+    right: 0%;
+    width: 2.5rem;
+  }
+  .medicine_content-img1 {
+    left: 5%;
+  }
+  .medicine_content-img2 {
+    right: 5%;
+  }
+  .pill_img1 {
+    top: -5%;
+  }
+}

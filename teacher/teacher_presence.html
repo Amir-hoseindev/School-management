@@ -26,10 +26,10 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="public/css.css" />
+    <link rel="stylesheet" href="../public/css.css" />
   </head>
   <body>
-    <section>
+   <section>
       <nav
         class="navbar navbar-expand-lg bg-body-tertiary rounded"
         aria-label="Eleventh navbar example"
@@ -39,10 +39,7 @@
             <span class="fw-bold"> ویرایش پروفایل </span>
             <i class="bi bi-person-circle mx-2"></i>
           </a>
-          <a class="btn btn-custom" href="#">
-            <span class="fw-bold">خروج</span>
-            <i class="bi bi-box-arrow-left mx-2"></i>
-          </a>
+           <p class="fs-5 fw-bold text-dark mx-2 mx-xl-5 my-0">طاها رحمانی</p>
           <button
             class="navbar-toggler"
             type="button"
@@ -54,10 +51,10 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <p class="fs-5 fw-bold text-dark mx-5 my-0">طاها رحمانی</p>
+         
           <div class="collapse navbar-collapse" id="navbarsExample09">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a
                   class="nav-link active fs-5 fw-bold"
                   aria-current="page"
@@ -65,18 +62,20 @@
                   >صفحه اصلی</a
                 >
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold" href="#">تکالیف</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">فیلم های آموزشی</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">نمرات</a>
               </li>
-
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">حضور و غیاب</a>
+              </li>
+              <li class="nav-item mx-xxl-3 mx-1">
+                <a class="nav-link fs-5 fw-bold">خروج</a>
               </li>
             </ul>
           </div>
@@ -132,7 +131,6 @@
                           <th class="text-center">نام</th>
                           <th class="text-center">حضور</th>
                           <th class="text-center">وضعیت</th>
-                          <th class="text-center">یادداشت</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -141,54 +139,43 @@
                           <td class="text-center">1</td>
                           <td class="text-center">سارا محمدی</td>
                           <td class="text-center">
-                              <a href="#" class="btn btn-custom btn-sm">حاضر</a>
-                                <a href="#" class="btn btn-custom btn-sm">غایب</a>
+                              <a href="#" class="btn btn-custom btn-sm my-1">حاضر</a>
+                                <a href="#" class="btn btn-custom btn-sm my-1">غایب</a>
+                                <a href="#" class="btn btn-custom btn-sm my-1">تاخیر</a>
                            
                           </td>
                            <td class="text-center">غایب</td>
-                          <td class="text-center">
-                            <form action="" class="d-flex align-items-center">
-                              <textarea name="" id="" placeholder="دلیل غیاب" class="form-control"></textarea>
-                              <button type="submit" class="btn btn-custom mx-1" >ثبت</button>
-                            </form>
-                          </td>
+                          
                         </tr>
                         <tr>
-                          <td class="text-center">2</td>
+                          <td class="text-center">1</td>
                           <td class="text-center">سارا محمدی</td>
                           <td class="text-center">
-                              <a href="#" class="btn btn-custom btn-sm">حاضر</a>
-                                <a href="#" class="btn btn-custom btn-sm">غایب</a>
+                              <a href="#" class="btn btn-custom btn-sm my-1">حاضر</a>
+                                <a href="#" class="btn btn-custom btn-sm my-1">غایب</a>
+                                <a href="#" class="btn btn-custom btn-sm my-1">تاخیر</a>
                            
                           </td>
                            <td class="text-center">غایب</td>
-                          <td class="text-center">
-                            <form action="" class="d-flex align-items-center">
-                              <textarea name="" id="" placeholder="دلیل غیاب" class="form-control"></textarea>
-                              <button type="submit" class="btn btn-custom mx-1" >ثبت</button>
-                            </form>
-                          </td>
+                          
                         </tr>
                         <tr>
-                          <td class="text-center">3</td>
+                          <td class="text-center">1</td>
                           <td class="text-center">سارا محمدی</td>
                           <td class="text-center">
-                              <a href="#" class="btn btn-custom btn-sm">حاضر</a>
-                                <a href="#" class="btn btn-custom btn-sm">غایب</a>
+                              <a href="#" class="btn btn-custom btn-sm my-1">حاضر</a>
+                                <a href="#" class="btn btn-custom btn-sm my-1">غایب</a>
+                                <a href="#" class="btn btn-custom btn-sm my-1">تاخیر</a>
                            
                           </td>
-                           <td class="text-center">چیزی ثبت نشده</td>
-                          <td class="text-center">
-                            <form action="" class="d-flex align-items-center">
-                              <textarea name="" id="" placeholder="دلیل غیاب" class="form-control"></textarea>
-                              <button type="submit" class="btn btn-custom mx-1" >ثبت</button>
-                            </form>
-                          </td>
+                           <td class="text-center">غایب</td>
+                          
                         </tr>
+                       
                       </tbody>
                     </table>
                   </div>
-                  <button class="btn btn-custom mt-2">ثبت حضور</button>
+                  <button class="btn btn-custom mt-2">ثبت حضور همه کلاس</button>
                 </div>
               </div>
 

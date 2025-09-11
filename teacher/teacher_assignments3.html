@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>اردوها</title>
+    <title>لیست ثبت تمرین</title>
 
     <!-- Bootstrap CDN -->
     <link
@@ -26,7 +26,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="public/css.css" />
+    <link rel="stylesheet" href="../public/css.css" />
   </head>
   <body>
     <section>
@@ -39,10 +39,7 @@
             <span class="fw-bold"> ویرایش پروفایل </span>
             <i class="bi bi-person-circle mx-2"></i>
           </a>
-          <a class="btn btn-custom" href="#">
-            <span class="fw-bold">خروج</span>
-            <i class="bi bi-box-arrow-left mx-2"></i>
-          </a>
+           <p class="fs-5 fw-bold text-dark mx-2 mx-xl-5 my-0">طاها رحمانی</p>
           <button
             class="navbar-toggler"
             type="button"
@@ -54,10 +51,10 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <p class="fs-5 fw-bold text-dark mx-5 my-0">طاها رحمانی</p>
+         
           <div class="collapse navbar-collapse" id="navbarsExample09">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a
                   class="nav-link active fs-5 fw-bold"
                   aria-current="page"
@@ -65,20 +62,20 @@
                   >صفحه اصلی</a
                 >
               </li>
-              <li class="nav-item mx-3">
-                <a class="nav-link fs-5 fw-bold" href="#">اردوها</a>
+              <li class="nav-item mx-xxl-3 mx-1">
+                <a class="nav-link fs-5 fw-bold" href="#">تکالیف</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">فیلم های آموزشی</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">نمرات</a>
               </li>
-              <li class="nav-item mx-3">
-                <a class="nav-link fs-5 fw-bold">تکالیف</a>
+              <li class="nav-item mx-xxl-3 mx-1">
+                <a class="nav-link fs-5 fw-bold">حضور و غیاب</a>
               </li>
-              <li class="nav-item mx-3">
-                <a class="nav-link fs-5 fw-bold">اوقات فراقت</a>
+              <li class="nav-item mx-xxl-3 mx-1">
+                <a class="nav-link fs-5 fw-bold">خروج</a>
               </li>
             </ul>
           </div>
@@ -86,97 +83,111 @@
       </nav>
     </section>
 
-    <section>
-      <div class="student_film">
-        <div class="container">
-          <div class="row py-5">
-            <h2 class="text-center mb-4">مدیریت اردوهای دانش‌آموز</h2>
+ 
 
-            <div class="col-md-6">
-              
-              <div class="camp-card">
-                <img
-                  src="image/bee8d8cf83f9d3871ef3984c1959151c.jpg"
-                  class="camp_card-img-top"
-                  alt="عکس اردو"
-                />
-                <div class="mt-3">
-                  <h4 class="camp-title">اردوی تفریحی طبیعت‌گردی</h4>
-                  <p>
-                    <strong>تاریخ و زمان:</strong> 10-12 مهر 1404 (8 صبح تا 5
-                    عصر)
-                  </p>
-                  <p><strong>مکان:</strong> آبشار بیشه لرستان</p>
-                  <p>
-                    <strong>برنامه روزانه:</strong> بازدید از جنگل، بازی‌های
-                    گروهی، کمپینگ
-                  </p>
-                  <p>
-                    <strong>وسایل موردنیاز:</strong> کوله‌پشتی، لباس گرم، دفترچه
-                    بیمه
-                  </p>
-                  <p><strong>هزینه:</strong> 500,000 تومان</p>
-                  <p>
-                    <strong>وضعیت ثبت‌نام:</strong>
-                    <span class="text-warning">در انتظار تأیید</span>
-                  </p>
-                  <a
-                    href="documents/consent-form.pdf"
-                    download
-                    class="btn btn-custom btn-sm"
-                    >دانلود رضایت‌نامه</a
-                  >
-                  <p><strong>اطلاعات تماس:</strong> 09123456789 </p>
-                  <p>
-                    <strong>سرپرست :</strong> سعید مینایی
-                  </p>
-                  
-                </div>
-              </div>
+    <section>
+      <div class="teacher_movie-form">
+        <div class="container mt-5">
+             <h2 class="text-center my-2 teacher_movie-form-title">لیست ثبت تمرین</h2>
+          <div class="row position-relative">
+            <p class="fs-4 fw-bold text-end pill_title-list">
+              لیست وضعیت تمرین ها:
+            </p>
+            <div class="pill_table-responsive">
+              <table class="table pill_table-custom table-striped">
+                <thead>
+                  <tr>
+                    <th class="text-center">ردیف</th>
+                    <th class="text-center">دانش‌آموز</th>
+                    <th class="text-center">عنوان تمرین</th>
+                    <th class="text-center">تاریخ تحویل</th>
+                    <th class="text-center">نمره</th>
+                    <th class="text-center">تنظیمات</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td class="text-center">امیر علوی</td>
+                    <td class="text-center">20 تا عملیات جمع و تفریق انجام دهید</td>
+                    <td class="text-center">08/25</td>
+                    <td class="text-center">
+                     <select name="" id="" class="form-control">
+                        <option value="">بد</option>
+                        <option value="">متوسط</option>
+                        <option value="">خوب</option>
+                        <option value="">عالی</option>
+                     </select>
+                   
+                    </td>
+                    
+                    <td class="text-center">
+                       <a href="#" class="btn btn-custom btn-sm">ثبت</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td class="text-center">امیر علوی</td>
+                    <td class="text-center">20 تا عملیات جمع و تفریق انجام دهید</td>
+                    <td class="text-center">08/25</td>
+                    <td class="text-center">
+                     <select name="" id="" class="form-control">
+                        <option value="">بد</option>
+                        <option value="">متوسط</option>
+                        <option value="">خوب</option>
+                        <option value="">عالی</option>
+                     </select>
+                    </td>
+                    
+                    <td class="text-center">
+                       <a href="#" class="btn btn-custom btn-sm">ثبت</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td class="text-center">امیر علوی</td>
+                    <td class="text-center">20 تا عملیات جمع و تفریق انجام دهید</td>
+                    <td class="text-center">08/25</td>
+                    <td class="text-center">
+                     <select name="" id="" class="form-control">
+                        <option value="">بد</option>
+                        <option value="">متوسط</option>
+                        <option value="">خوب</option>
+                        <option value="">عالی</option>
+                     </select>
+                    </td>
+                   
+                    <td class="text-center">
+                       <a href="#" class="btn btn-custom btn-sm">ثبت</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center">1</td>
+                    <td class="text-center">امیر علوی</td>
+                    <td class="text-center">20 تا عملیات جمع و تفریق انجام دهید</td>
+                    <td class="text-center">08/25</td>
+                    <td class="text-center">
+                     <select name="" id="" class="form-control">
+                        <option value="">بد</option>
+                        <option value="">متوسط</option>
+                        <option value="">خوب</option>
+                        <option value="">عالی</option>
+                     </select>
+                    </td>
+                    
+                    <td class="text-center">
+                       <a href="#" class="btn btn-custom btn-sm">ثبت</a>
+                    </td>
+                  </tr>
+               
+                </tbody>
+              </table>
             </div>
-            <div class="col-md-6">
-              
-              <div class="camp-card">
-                <img
-                  src="image/7293797a35e79643b9c10b99344766d6.jpg"
-                  class="camp_card-img-top"
-                  alt="عکس اردو"
-                />
-                <div class="mt-3">
-                  <h4 class="camp-title">اردوی تفریحی طبیعت‌گردی</h4>
-                  <p>
-                    <strong>تاریخ و زمان:</strong> 10-12 مهر 1404 (8 صبح تا 5
-                    عصر)
-                  </p>
-                  <p><strong>مکان:</strong> پارک ملی گلستان</p>
-                  <p>
-                    <strong>برنامه روزانه:</strong> بازدید از جنگل، بازی‌های
-                    گروهی، کمپینگ
-                  </p>
-                  <p>
-                    <strong>وسایل موردنیاز:</strong> کوله‌پشتی، لباس گرم، دفترچه
-                    بیمه
-                  </p>
-                  <p><strong>هزینه:</strong> 500,000 تومان</p>
-                  <p>
-                    <strong>وضعیت ثبت‌نام:</strong>
-                    <span class="text-warning">در انتظار تأیید</span>
-                  </p>
-                  <a
-                    href="documents/consent-form.pdf"
-                    download
-                    class="btn btn-custom btn-sm"
-                    >دانلود رضایت‌نامه</a
-                  >
-                  <p><strong>اطلاعات تماس:</strong> 09123456789 </p>
-                  <p>
-                    <strong>سرپرست :</strong> سعید مینایی
-                  </p>
-                  
-                </div>
-              </div>
-            </div>
+            <img src="../image/assignment (1).png" class="pill_img1" alt="عکس آیکن تمرین" />
           </div>
+         
+
+       
         </div>
       </div>
     </section>

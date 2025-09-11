@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>پروتال دانش آموز</title>
+    <title>ویرایش پروفایل</title>
 
     <!-- Bootstrap CDN -->
     <link
@@ -26,38 +26,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="public/css.css" />
-
-    <!-- Demo styles -->
-    <style>
-      .event {
-        position: relative;
-        height: 100%;
-        background: #2c3e50;
-        font-size: 14px;
-        color: #e6f0fa;
-        margin: 0;
-        padding: 0;
-      }
-      .swiper {
-        border-radius: 2rem;
-      }
-      .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #444;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .swiper-slide img {
-        display: block;
-        width: 100%;
-        max-height: 100%;
-        object-fit: cover;
-      }
-    </style>
+    <link rel="stylesheet" href="../public/css.css" />
   </head>
   <body>
     <section>
@@ -65,15 +34,13 @@
         class="navbar navbar-expand-lg bg-body-tertiary rounded"
         aria-label="Eleventh navbar example"
       >
-        <div class="container">
+        <div class="container-fluid">
           <a class="btn btn-custom mx-2 d-flex align-items-center" href="#">
             <span class="fw-bold"> ویرایش پروفایل </span>
             <i class="bi bi-person-circle mx-2"></i>
           </a>
-          <a class="btn btn-custom" href="#">
-            <span class="fw-bold">خروج</span>
-            <i class="bi bi-box-arrow-left mx-2"></i>
-          </a>
+        
+          <p class="fs-5 fw-bold text-dark mx-xl-5 mx-2 my-0">طاها رحمانی</p>
           <button
             class="navbar-toggler"
             type="button"
@@ -85,12 +52,10 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <p class="fs-5 fw-bold text-dark mx-5 my-0">
-            طاها رحمانی
-          </p>
+
           <div class="collapse navbar-collapse" id="navbarsExample09">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item mx-3">
+            <ul class="navbar-nav ms-auto mb-1 mb-lg-0">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a
                   class="nav-link active fs-5 fw-bold"
                   aria-current="page"
@@ -98,20 +63,23 @@
                   >صفحه اصلی</a
                 >
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold" href="#">اردوها</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">فیلم های آموزشی</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">نمرات</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">تکالیف</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">اوقات فراقت</a>
+              </li>
+              <li class="nav-item mx-xxl-3 mx-1">
+                <a class="nav-link fs-5 fw-bold">خروج</a>
               </li>
             </ul>
           </div>
@@ -119,115 +87,103 @@
       </nav>
     </section>
 
-    <section>
-      <div class="event">
-        <div class="container">
-          <div class="row py-5">
-            <div class="col-12">
-                <img src="image/clouds.png" class="swiper_clouds" alt="">
-              <!-- Swiper -->
-              <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img src="image/school4-5.jpg" alt="" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="image/school2-3.jpg" alt="" />
-                  </div>
-                  <div class="swiper-slide">
-                    <img src="image/school4-5.jpg" alt="" />
-                  </div>
-                </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-              </div>
-               <img src="image/car.png" class="swiper_car" alt="">
-            </div>
-          </div>
+    <div class="container mt-5">
+      <div class="row">
+        <h2 class="text-center mb-4 text-light">ویرایش پروفایل</h2>
+        <p class="text-center mb-4 text-light">
+          در این بخش می‌توانید اطلاعات شخصی، فرزندان، و تنظیمات خود را به‌روز
+          کنید. لطفاً تغییرات را با دقت ذخیره کنید.
+        </p>
+        <div class="student_profile">
+          <img
+            src="../image/2533e2696189138baeb4a79e4886a9de.jpg"
+            alt="عکس پروفایل"
+            class=""
+          />
         </div>
-      </div>
-    </section>
+        <p class="text-center text-danger mb-4">
+          📌 نکات مهم: اطلاعات تغییر یافته پس از تأیید ذخیره می‌شود.
+        </p>
+        <div class="pill_form-container">
+          <h5 class="mb-3">ویرایش پروفایل</h5>
+          <form>
+            <div class="mb-3">
+              <label for="drugName" class="pill_form-label">نام</label>
+              <input
+                type="text"
+                class="form-control"
+                id="drugName"
+                placeholder="مثال: طاها"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="drugName" class="pill_form-label">نام خانوادگی</label>
+              <input
+                type="text"
+                class="form-control"
+                id="drugName"
+                placeholder="مثال: رحمانی"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="drugName" class="pill_form-label"
+                >کد ملی دانش آموز</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="drugName"
+                placeholder="مثال: 094156987"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="dosage" class="pill_form-label">انتخاب کلاس</label>
+              <select name="" id="" class="form-control">
+                <option value="">کلاس اول</option>
+                <option value="">کلاس دوم</option>
+                <option value="">کلاس سوم</option>
+                <option value="">کلاس چهارم</option>
+                <option value="">کلاس پنجم</option>
+                <option value="">کلاس ششم</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="schedule" class="pill_form-label"
+                >تصویر دانش آموز را واردکنید</label
+              >
+              <input type="file" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label for="drugName" class="pill_form-label">شماره تماس</label>
+              <input
+                type="number"
+                class="form-control"
+                id="drugName"
+                placeholder="مثال: 09025648932"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="drugName" class="pill_form-label">رمز عبور</label>
+              <input
+                type="text"
+                class="form-control"
+                id="drugName"
+                placeholder="مثال: Omid6925"
+                required
+              />
+            </div>
 
-    <section>
-      <div class="fild">
-        <div class="container">
-          <div class="row pt-5 position-relative">
-            <div class="col-md-7">
-              <div class="row g-2">
-                <div class="col-6 col-lg-4">
-                  <a class="fild_box btn px-1">
-                    <div class="fild_box-content">
-                      <img src="image/tent.png" class="img-fuind" alt="" />
-                      <p>اردو ها</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                  <a class="fild_box btn px-1">
-                    <div class="fild_box-content">
-                      <img src="image/medicine.png" class="img-fuind" alt="" />
-                      <p>دارو ها</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                  <a class="fild_box btn px-1">
-                    <div class="fild_box-content">
-                      <img src="image/webinar.png" class="img-fuind" alt="" />
-                      <p>فیلم های آموزشی</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                  <a class="fild_box btn px-1">
-                    <div class="fild_box-content">
-                      <img src="image/test.png" class="img-fuind" alt="" />
-                      <p>نمرات</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                  <a class="fild_box btn px-1">
-                    <div class="fild_box-content">
-                      <img src="image/chatting.png" class="img-fuind" alt="" />
-                      <p>تکالیف</p>
-                    </div>
-                  </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                  <a href="index.html" class="fild_box btn px-1">
-                    <div class="fild_box-content">
-                      <img src="image/games.png" class="img-fuind" alt="" />
-                      <p>اوقات فراقت</p>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              <img src="image/moon (1).png" class="fild_moon" alt="" />
-            </div>
-            <div class="col-md-5">
-              <div class="fild_image">
-                <div class="fild_image-img1">
-                  <img
-                    src="image/photo_2025-09-03_20-31-57.jpg"
-                    class="fild_image-img1-1"
-                  />
-                </div>
-                <div class="fild_image-img2">
-                  <img
-                    src="image/photo_2025-09-03_20-31-59.jpg"
-                    alt=""
-                    class="fild_image-img2-2"
-                  />
-                </div>
-              </div>
-            </div>
-            <img src="image/fly.png" class="fild_fly" alt="" />
-          </div>
+            <button type="submit" class="btn pill_btn-custom w-100">
+              ارسال
+            </button>
+          </form>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- ============================================= footer ============================================= -->
     <section>
@@ -320,28 +276,5 @@
         </div>
       </footer>
     </section>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Initialize Swiper -->
-    <script>
-      var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-      });
-    </script>
   </body>
 </html>

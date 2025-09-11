@@ -26,23 +26,21 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="public/css.css" />
+    <link rel="stylesheet" href="../public/css.css" />
   </head>
   <body>
-    <section>
+  <section>
       <nav
         class="navbar navbar-expand-lg bg-body-tertiary rounded"
         aria-label="Eleventh navbar example"
       >
-        <div class="container">
+        <div class="container-fluid">
           <a class="btn btn-custom mx-2 d-flex align-items-center" href="#">
             <span class="fw-bold"> ویرایش پروفایل </span>
             <i class="bi bi-person-circle mx-2"></i>
           </a>
-          <a class="btn btn-custom" href="#">
-            <span class="fw-bold">خروج</span>
-            <i class="bi bi-box-arrow-left mx-2"></i>
-          </a>
+
+          <p class="fs-5 fw-bold text-dark mx-xl-5 mx-2 my-0">طاها رحمانی</p>
           <button
             class="navbar-toggler"
             type="button"
@@ -54,10 +52,10 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <p class="fs-5 fw-bold text-dark mx-5 my-0">طاها رحمانی</p>
+
           <div class="collapse navbar-collapse" id="navbarsExample09">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item mx-3">
+            <ul class="navbar-nav ms-auto mb-1 mb-lg-0">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a
                   class="nav-link active fs-5 fw-bold"
                   aria-current="page"
@@ -65,18 +63,23 @@
                   >صفحه اصلی</a
                 >
               </li>
-              <li class="nav-item mx-3">
-                <a class="nav-link fs-5 fw-bold" href="#">تکالیف</a>
+              <li class="nav-item mx-xxl-3 mx-1">
+                <a class="nav-link fs-5 fw-bold" href="#">اردوها</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">فیلم های آموزشی</a>
               </li>
-              <li class="nav-item mx-3">
+              <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">نمرات</a>
               </li>
-              
-              <li class="nav-item mx-3">
-                <a class="nav-link fs-5 fw-bold">حضور و غیاب</a>
+              <li class="nav-item mx-xxl-3 mx-1">
+                <a class="nav-link fs-5 fw-bold">تکالیف</a>
+              </li>
+              <li class="nav-item mx-xxl-3 mx-1">
+                <a class="nav-link fs-5 fw-bold">اوقات فراقت</a>
+              </li>
+              <li class="nav-item mx-xxl-3 mx-1">
+                <a class="nav-link fs-5 fw-bold">خروج</a>
               </li>
             </ul>
           </div>
@@ -88,92 +91,25 @@
       <div class="teacher_assignments">
         <!-- لیست تکالیف -->
         <div class="container">
-          <div class="row my-5">
-            <div class="col-md-3">
-              <div class="teacher_assignments-card">
+          <div class="row my-5" dir="rtl">
+            <div class="col-xl-3 col-lg-4 gy-4">
+              <div class="teacher_assignments-card d-md-block d-flex flex-column justify-content-center ">
                 <h4 class="teacher_assignments-title">تمرین ریاضی صفحه 25</h4>
-                <p><span class="fw.-bold">سررسید:</span> 07/09/2025</p>
+                <p><span class="fw.-bold">تاریخ ثبت تمرین:</span> 07/09/2025</p>
+                <p><span class="fw.-bold">تاریخ تحویل تمرین:</span> 07/09/2025</p>
                 <p><span class="fw-bold">درس:</span>ریاضی</p>
                 <p>
                   <span class="fw-bold">توضیحات:</span> حل 10 مسئله جمع و تفریق.
                 </p>
 
-                <p>وضعیت: <span class="status-pending">در حال انجام</span></p>
                 <div class="mt-2">
-                  <a href="#" class="btn btn-custom btn-sm me-2">ویرایش</a>
-                  <a href="#" class="btn btn-custom btn-sm">حذف</a>
+                  <a href="#" class="btn btn-custom btn-sm me-2">دانلود</a>
+                  <a href="#" class="btn btn-custom btn-sm">ارسال تمرین</a>
                 </div>
-                <div class="mt-2">
-                  <a href="#" class="btn btn-custom btn-sm"
-                    >ثبت تمررین برای دانش آموز</a
-                  >
-                </div>
+               
               </div>
             </div>
-            <div class="col-md-3">
-              <div class="teacher_assignments-card">
-                <h4 class="teacher_assignments-title">انشا درباره پاییز</h4>
-                <p><span class="fw.-bold">سررسید:</span> 07/09/2025</p>
-                <p><span class="fw-bold">درس:</span>فارسی</p>
-                <p>
-                  <span class="fw-bold">توضیحات:</span> نگارش انشای 200 کلمه‌ای.
-                </p>
-                <p>
-                  وضعیت: <span class="status-submitted">مهلت تمام شده</span>
-                </p>
-                <div class="mt-2">
-                  <a
-                    href="assignments/essay.pdf"
-                    class="btn btn-custom btn-sm me-2"
-                    >ویرایش</a
-                  >
-                  <a href="#" class="btn btn-custom btn-sm">حذف</a>
-                </div>
-                <div class="mt-2">
-                  <a href="#" class="btn btn-custom btn-sm"
-                    >ثبت تمررین برای دانش آموز</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="teacher_assignments-card">
-                <h4 class="teacher_assignments-title">پروژه علوم - گیاهان</h4>
-                <p><span class="fw-bold">سررسید:</span> 06/09/2025</p>
-                <p><span class="fw-bold">درس:</span>علوم</p>
-
-                <p><span class="fw-bold">توضیحات:</span> ساخت مدل ساده گیاه.</p>
-                <p>وضعیت: <span class="status-overdue">در حال انجام</span></p>
-                <div class="mt-2">
-                  <a href="#" class="btn btn-custom btn-sm me-2">ویرایش</a>
-                  <a href="#" class="btn btn-custom btn-sm">حذف</a>
-                </div>
-                <div class="mt-2">
-                  <a href="#" class="btn btn-custom btn-sm"
-                    >ثبت تمررین برای دانش آموز</a
-                  >
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="teacher_assignments-card">
-                <h4 class="teacher_assignments-title">پروژه علوم - گیاهان</h4>
-                <p><span class="fw-bold">سررسید:</span> 06/09/2025</p>
-                <p><span class="fw-bold">درس:</span>علوم</p>
-
-                <p><span class="fw-bold">توضیحات:</span> ساخت مدل ساده گیاه.</p>
-                <p>وضعیت: <span class="status-overdue">مهلت تمام شده</span></p>
-                <div class="mt-2">
-                  <a href="#" class="btn btn-custom btn-sm me-2">ویرایش</a>
-                  <a href="#" class="btn btn-custom btn-sm">حذف</a>
-                </div>
-                <div class="mt-2">
-                  <a href="#" class="btn btn-custom btn-sm"
-                    >ثبت تمررین برای دانش آموز</a
-                  >
-                </div>
-              </div>
-            </div>
+        
           </div>
         </div>
       </div>
@@ -184,14 +120,13 @@
         <div class="container mt-5">
           <div class="row position-relative">
             <p class="fs-4 fw-bold text-end pill_title-list">
-              لیست وضعیت تمرین ها:
+              لیست وضعیت تمرین های فرزندتان:
             </p>
             <div class="pill_table-responsive">
               <table class="table pill_table-custom table-striped">
                 <thead>
                   <tr>
                     <th>ردیف</th>
-                    <th>دانش‌آموز</th>
                     <th>تمرین اول</th>
                     <th>تمرین دوم</th>
                     <th>تمرین سوم</th>
@@ -200,7 +135,6 @@
                 <tbody>
                   <tr>
                     <td>1</td>
-                    <td>امیر علوی</td>
                     <td>
                       <p><span class="fw-bold">وضعیت :</span> تحویل داده شده</p>
                       <p><span class="fw-bold">نمره :</span> خیلی خوب</p>
@@ -216,7 +150,6 @@
                   </tr>
                   <tr>
                     <td>2</td>
-                    <td>امیر علوی</td>
                     <td>
                       <p><span class="fw-bold">وضعیت :</span> تحویل داده شده</p>
                       <p><span class="fw-bold">نمره :</span> خیلی خوب</p>
@@ -232,7 +165,6 @@
                   </tr>
                   <tr>
                     <td>3</td>
-                    <td>امیر علوی</td>
                     <td>
                       <p><span class="fw-bold">وضعیت :</span> تحویل داده شده</p>
                       <p><span class="fw-bold">نمره :</span> خیلی خوب</p>
@@ -248,7 +180,6 @@
                   </tr>
                   <tr>
                     <td>4</td>
-                    <td>امیر علوی</td>
                     <td>
                       <p><span class="fw-bold">وضعیت :</span> تحویل داده شده</p>
                       <p><span class="fw-bold">نمره :</span> خیلی خوب</p>
@@ -265,92 +196,9 @@
                 </tbody>
               </table>
             </div>
-            <img src="image/assignment (3).png" class="pill_img1" alt="" />
           </div>
-          <h2 class="text-center my-2 teacher_movie-form-title">آپلود تمرین</h2>
-
-          <!-- فرم آپلود ویدیو -->
-          <div class="row position-relative">
-            <img src="image/assignment (1).png" class="teacher_movie-form-car" alt="تمرین" />
-            <img
-              src="image/curved-arrow-with-broken-line.png"
-              class="teacher_movie-form-line1"
-              alt="تمرین"
-            />
-
-            <div class="pill_form-container">
-              <h5 class="mb-3">آپلود تمرین جدید</h5>
-              <form>
-                <div class="mb-3">
-                  <label for="drugName" class="pill_form-label"
-                    >عنوان تمرین</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="drugName"
-                    placeholder="مثال: ریاضی"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="drugName" class="pill_form-label"
-                    >تازیخ تحویل تمرین</label
-                  >
-                  <input
-                    type="date"
-                    class="form-control"
-                    id="drugName"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="dosage" class="pill_form-label">انتخاب درس</label>
-                  <select name="" id="" class="form-control">
-                    <option value="">ریاضی</option>
-                    <option value="">علوم</option>
-                    <option value="">ورزش</option>
-                    <option value="">هنر</option>
-                    <option value="">قرآن</option>
-                    <option value="">مطالعات اجتماعی</option>
-                  </select>
-                </div>
-                <div class="mb-3">
-                  <label for="schedule" class="pill_form-label"
-                    >عکس تمرین خود را انتخاب کنید</label
-                  >
-                  <input
-                    type="file"
-                    class="form-control"
-                    accept="video/*"
-                    required
-                  />
-                </div>
-                <div class="mb-3">
-                  <label for="notes" class="pill_form-label">توضیحات </label>
-                  <textarea
-                    class="form-control"
-                    id="notes"
-                    rows="3"
-                    placeholder="مثال:  نگارش انشای 200 کلمه‌ای."
-                  ></textarea>
-                </div>
-                <button type="submit" class="btn pill_btn-custom w-100">
-                  آپلود
-                </button>
-              </form>
-            </div>
-            <img
-              src="image/rotated-right-arrow-with-broken-line.png"
-              class="teacher_movie-form-line2"
-              alt="عکس خط"
-            />
-            <img
-              src="image/assignment (2).png"
-              class="teacher_movie-form-movie1"
-              alt="عکس تمرین"
-            />
-          </div>
+        
+      
         </div>
       </div>
     </section>
