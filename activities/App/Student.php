@@ -30,6 +30,14 @@ class Student extends Admin
         {
             require_once(BASE_PATH . '/template/app/student/video/index.php');
         }
+        public function leisureTime()
+        {
+            require_once(BASE_PATH . '/template/app/student/leisureTime/index.php');
+        }
+        public function profile()
+        {
+            require_once(BASE_PATH . '/template/app/student/profile/index.php');
+        }
 
 }
 

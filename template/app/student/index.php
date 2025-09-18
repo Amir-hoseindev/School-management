@@ -94,7 +94,7 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                  <div class="col-md-7">
               <div class="row g-2">
                 <div class="col-6 col-lg-4">
-                  <a class="fild_box btn px-1">
+                  <a href="<?= url('student/camp') ?>" class="fild_box btn px-1">
                     <div class="fild_box-content">
                       <img src="<?= url('public/image/tent.png') ?>" class="img-fuind" alt="اردو ها" />
                       <p>اردو ها</p>
@@ -102,7 +102,7 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                   </a>
                 </div>
                 <div class="col-6 col-lg-4">
-                  <a class="fild_box btn px-1">
+                  <a href="<?= url('student/medicine') ?>" class="fild_box btn px-1">
                     <div class="fild_box-content">
                       <img src="<?= url('public/image/medicine.png') ?>" class="img-fuind" alt="دارو ها" />
                       <p>دارو ها</p>
@@ -110,7 +110,7 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                   </a>
                 </div>
                 <div class="col-6 col-lg-4">
-                  <a class="fild_box btn px-1">
+                  <a href="<?= url('student/video') ?>" class="fild_box btn px-1">
                     <div class="fild_box-content">
                       <img src="<?= url('public/image/webinar.png') ?>" class="img-fuind" alt="فیلم های آموزشی" />
                       <p>فیلم های آموزشی</p>
@@ -118,7 +118,7 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                   </a>
                 </div>
                 <div class="col-6 col-lg-4">
-                  <a class="fild_box btn px-1">
+                  <a href="<?= url('student/grades') ?>" class="fild_box btn px-1">
                     <div class="fild_box-content">
                       <img src="<?= url('public/image/test.png') ?>" class="img-fuind" alt="نمرات" />
                       <p>نمرات</p>
@@ -126,7 +126,7 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                   </a>
                 </div>
                 <div class="col-6 col-lg-4">
-                  <a class="fild_box btn px-1">
+                  <a href="<?= url('student/assignments') ?>" class="fild_box btn px-1">
                     <div class="fild_box-content">
                       <img src="<?= url('public/image/chatting.png') ?>" class="img-fuind" alt="تکالیف" />
                       <p>تکالیف</p>
@@ -134,7 +134,7 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                   </a>
                 </div>
                 <div class="col-6 col-lg-4">
-                  <a href="index.html" class="fild_box btn px-1">
+                  <a href="<?= url('student/leisureTime') ?>" href="index.html" class="fild_box btn px-1">
                     <div class="fild_box-content">
                       <img src="<?= url('public/image/games.png') ?>" class="img-fuind" alt="اوقات فراقت" />
                       <p>اوقات فراقت</p>

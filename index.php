@@ -176,6 +176,8 @@ uri('student/camp', 'App\Student', 'camp');
 uri('student/grades', 'App\Student', 'grades');
 uri('student/medicine', 'App\Student', 'medicine');
 uri('student/video', 'App\Student', 'video');
+uri('student/leisureTime', 'App\Student', 'leisureTime');
+uri('student/profile', 'App\Student', 'profile');
 
 
 //Auth 

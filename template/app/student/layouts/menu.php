@@ -6,7 +6,7 @@
         aria-label="Eleventh navbar example"
       >
         <div class="container-fluid">
-          <a class="btn btn-custom mx-2 d-flex align-items-center" href="#">
+          <a class="btn btn-custom mx-2 d-flex align-items-center" href="<?= url('student/profile') ?>">
             <span class="fw-bold"> ویرایش پروفایل </span>
             <i class="bi bi-person-circle mx-2"></i>
           </a>
@@ -30,27 +30,27 @@
                 <a
                   class="nav-link active fs-5 fw-bold"
                   aria-current="page"
-                  href="#"
+                  href="<?= url('student') ?>"
                   >صفحه اصلی</a
                 >
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold" href="#">اردوها</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('student/camp') ?>">اردوها</a>
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold">فیلم های آموزشی</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('student/video') ?>">فیلم های آموزشی</a>
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold">نمرات</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('student/grades') ?>">نمرات</a>
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold">تکالیف</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('student/assignments') ?>">تکالیف</a>
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold">اوقات فراقت</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('student/leisureTime') ?>">اوقات فراقت</a>
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold">خروج</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('llll') ?>">خروج</a>
               </li>
             </ul>
           </div>
