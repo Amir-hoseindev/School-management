@@ -10,14 +10,32 @@ class Student extends Admin
         {
             require_once(BASE_PATH . '/template/app/student/index.php');
         }
+
+
+
+
+
+
+         public function camp()
+        {
+            $db = new DataBase();
+            $camps = $db->select('SELECT * FROM camps')->fetchAll();
+            
+            require_once(BASE_PATH . '/template/app/student/camp/index.php');
+        }
+
+
+
+
+
+
+
+
         public function assignments()
         {
             require_once(BASE_PATH . '/template/app/student/assignments/index.php');
         }
-        public function camp()
-        {
-            require_once(BASE_PATH . '/template/app/student/camp/index.php');
-        }
+       
         public function grades()
         {
             require_once(BASE_PATH . '/template/app/student/grades/index.php');

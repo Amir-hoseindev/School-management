@@ -9,7 +9,7 @@ define('BASE_PATH', __DIR__);
 define('CURRENT_DOMAIN', currentDomain() . '/school_protal');
 define('DISPLAY_ERROR', true);
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'school_protal');
+define('DB_NAME', 'school_portal');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 
