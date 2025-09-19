@@ -3,9 +3,14 @@
 namespace app;
 
 use database\DataBase;
+use Auth\Auth;
 
 class Student extends Admin
 {
+     function __construct(){
+                $auth = new Auth();
+                $auth->checkStudent();
+        }
         public function index()
         {
             require_once(BASE_PATH . '/template/app/student/index.php');

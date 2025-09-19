@@ -96,7 +96,7 @@
         aria-label="Eleventh navbar example"
       >
         <div class="container">
-          <a class="btn btn-custom mx-0 mx-md-2 " href="#">ورود دانش آموز</a>
+          <a class="btn btn-custom mx-0 mx-md-2 " href="<?= url('loginST') ?>">ورود دانش آموز</a>
           <a class="btn btn-custom" href="#">ورود اساتید</a>
           <button
             class="navbar-toggler"

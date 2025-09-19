@@ -2,15 +2,12 @@
 
 namespace App;
 
-use Auth\Auth;
 
 
 class Admin{
     protected $currentDomain;
     protected $basePath;
         function __construct(){
-                // $auth = new Auth();
-                // $auth->checkAdmin();
                 $this->currentDomain = CURRENT_DOMAIN;
                 $this->basePath = BASE_PATH;
                 date_default_timezone_set('Asia/Tehran');

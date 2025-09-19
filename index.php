@@ -180,12 +180,12 @@ uri('student/leisureTime', 'App\Student', 'leisureTime');
 uri('student/profile', 'App\Student', 'profile');
 
 
-//Auth 
-uri('register', 'Auth\Auth', 'register');
-uri('register/store', 'Auth\Auth', 'registerStore', 'POST');
-uri('login', 'Auth\Auth', 'login');
-uri('check-login', 'Auth\Auth', 'checkLogin', 'POST');
-uri('logout', 'Auth\Auth', 'logout');
+//Auth student
+uri('registerST', 'Auth\Auth', 'registerST');
+uri('register/storeST', 'Auth\Auth', 'registerStoreST', 'POST');
+uri('loginST', 'Auth\Auth', 'loginST');
+uri('check-loginST', 'Auth\Auth', 'checkLoginST', 'POST');
+uri('logoutST', 'Auth\Auth', 'logoutST');
 
 
 
