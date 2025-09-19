@@ -174,6 +174,7 @@ uri('student', 'App\Student', 'index');
 uri('student/assignments', 'App\Student', 'assignments');
 uri('student/camp', 'App\Student', 'camp');
 uri('student/grades', 'App\Student', 'grades');
+uri('student/scoreReview/{id}', 'App\Student', 'scoreReview');
 uri('student/medicine', 'App\Student', 'medicine');
 uri('student/video', 'App\Student', 'video');
 uri('student/videoDetail/{id}', 'App\Student', 'videoDetail');

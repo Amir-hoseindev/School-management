@@ -53,7 +53,26 @@ class Student extends Admin
         )->fetchAll();
         require_once(BASE_PATH . '/template/app/student/video/videoDetail.php');
     }
-
+ public function grades()
+    {
+        $db = new DataBase();
+        $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
+        $grades = $db->select('SELECT * FROM grades WHERE student_id  = ?', [$_SESSION['student']])->fetchAll();
+     
+        require_once(BASE_PATH . '/template/app/student/grades/index.php');
+    }
+ public function scoreReview($id)
+    {
+        $db = new DataBase();
+     
+        $db->update('grades',
+         $id ,
+         ['answer' , 'status'],
+         [3 , 'درخواست بازنگری داده شده']
+         );
+     
+        $this->redirectBack();
+    }
 
 
 
@@ -67,12 +86,7 @@ class Student extends Admin
         require_once(BASE_PATH . '/template/app/student/assignments/index.php');
     }
 
-    public function grades()
-    {
-        $db = new DataBase();
-        $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
-        require_once(BASE_PATH . '/template/app/student/grades/index.php');
-    }
+   
     public function medicine()
     {
         $db = new DataBase();
