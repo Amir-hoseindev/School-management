@@ -11,7 +11,7 @@
             <i class="bi bi-person-circle mx-2"></i>
           </a>
         
-          <p class="fs-5 fw-bold text-dark mx-xl-5 mx-2 my-0">طاها رحمانی</p>
+          <p class="fs-5 fw-bold text-dark mx-xl-5 mx-2 my-0"><?= $student['name'] . ' ' . $student['last_name'] ?></p>
           <button
             class="navbar-toggler"
             type="button"
