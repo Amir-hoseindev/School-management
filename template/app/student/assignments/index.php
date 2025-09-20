@@ -66,96 +66,25 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                     src="<?= url('public/image/moon (1).png') ?>"
                     class="teacher_movie-moon1"
                     alt="عکس ماه" />
-                <div class="col-6 col-lg-4">
-                    <a class="fild_box btn px-1">
-                        <div class="fild_box-content">
-                            <img
-                                src="<?= url('public/image/quran.png') ?>"
-                                class="img-fuind"
-                                alt="آموزش قرآن" />
-                            <p>آموزش قرآن</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <a class="fild_box btn px-1">
-                        <div class="fild_box-content">
-                            <img
-                                src="<?= url('public/image/islamic.png') ?>"
-                                class="img-fuind"
-                                alt="هدیه های آسمانی" />
-                            <p>هدیه های آسمانی</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <a class="fild_box btn px-1">
-                        <div class="fild_box-content">
-                            <img src="<?= url('public/image/writing.png') ?>" class="img-fuind" alt="فارسی" />
-                            <p>فارسی</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <a class="fild_box btn px-1">
-                        <div class="fild_box-content">
-                            <img
-                                src="<?= url('public/image/calculating.png') ?>"
-                                class="img-fuind"
-                                alt="ریاضی" />
-                            <p>ریاضی</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <a class="fild_box btn px-1">
-                        <div class="fild_box-content">
-                            <img
-                                src="<?= url('public/image/microscope.png') ?>"
-                                class="img-fuind"
-                                alt="علوم تجربی" />
-                            <p>علوم تجربی</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <a href="#" class="fild_box btn px-1">
-                        <div class="fild_box-content">
-                            <img src="<?= url('public/image/art.png') ?>" class="img-fuind" alt="هنر" />
-                            <p>هنر</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <a href="index.html" class="fild_box btn px-1">
-                        <div class="fild_box-content">
-                            <img src="<?= url('public/image/sports.png') ?>" class="img-fuind" alt="ورزش" />
-                            <p>ورزش</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <a href="index.html" class="fild_box btn px-1">
-                        <div class="fild_box-content">
-                            <img
-                                src="<?= url('public/image/puzzle.png') ?>"
-                                class="img-fuind"
-                                alt="کار و فناوری" />
-                            <p>کار و فناوری</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-6 col-lg-4">
-                    <a href="index.html" class="fild_box btn px-1">
-                        <div class="fild_box-content">
-                            <img
-                                src="<?= url('public/image/globe.png') ?>"
-                                class="img-fuind"
-                                alt="مطالعات اجتماعی" />
-                            <p>مطالعات اجتماعی</p>
-                        </div>
-                    </a>
-                </div>
+
+
+                <?php
+                foreach ($grades as $grade) {
+                ?>
+
+
+                    <div class="col-6 col-lg-4">
+                        <a href="<?= url('student/assignmentDetail/' . $grade['id']) ?>" class="fild_box btn px-1">
+                            <div class="fild_box-content">
+                                <img src="<?= url('public/image/' . $grade['image_path']) ?>" class="img-fuind" alt="عکس <?= $grade['subject'] ?>" />
+                                <p><?= $grade['subject'] ?></p>
+                            </div>
+                        </a>
+                    </div>
+                <?php
+                }
+                ?>
+
             </div>
         </div>
     </div>

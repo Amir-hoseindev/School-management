@@ -172,6 +172,8 @@ uri('', 'App\Home', 'index');
 // student
 uri('student', 'App\Student', 'index');
 uri('student/assignments', 'App\Student', 'assignments');
+uri('student/assignmentDetail/{id}', 'App\Student', 'assignmentDetail');
+uri('student/submit_assignment', 'App\Student', 'submit_assignment','POST');
 uri('student/camp', 'App\Student', 'camp');
 uri('student/grades', 'App\Student', 'grades');
 uri('student/scoreReview/{id}', 'App\Student', 'scoreReview');
