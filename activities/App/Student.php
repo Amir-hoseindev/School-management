@@ -149,25 +149,47 @@ class Student extends Admin
     );
         require_once(BASE_PATH . '/template/app/student/leisureTime/index.php');
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function medicine()
     {
         $db = new DataBase();
         $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
+        $medicines = $db->select('SELECT * FROM medications WHERE student_id  = ?', [$_SESSION['student']])->fetchAll();
         require_once(BASE_PATH . '/template/app/student/medicine/index.php');
     }
+    public function medicine_stor($request)
+    {
+   
+        $db = new DataBase();
+        if ($request['date']) {
+            $db->insert(
+            'medications',
+            ['Student_id', 'academic_year_id', 'name', 'dosage', 'schedule', 'date', 'notes', 'status'],
+            [$_SESSION['student'], $request['academic_year_id'], $request['name'], $request['dosage'], $request['schedule'], $request['date'], $request['notes'], 'دارو ثبت شد']
+        ); 
+        }else {
+             $db->insert(
+            'medications',
+            ['Student_id', 'academic_year_id', 'name', 'dosage', 'schedule', 'every_day', 'notes', 'status'],
+            [$_SESSION['student'], $request['academic_year_id'], $request['name'], $request['dosage'], $request['schedule'], 3, $request['notes'], 'دارو ثبت شد']
+        );
+        }
+       
+        $this->redirectBack();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     public function profile()

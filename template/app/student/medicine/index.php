@@ -68,23 +68,42 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                     <table class="table pill_table-custom table-striped">
                         <thead>
                             <tr>
-                                <th class="fs-5">ردیف</th>
-                                <th class="fs-5">نام دارو</th>
-                                <th class="fs-5">دوز دارو</th>
-                                <th class="fs-5">زمان مصرف</th>
-                                <th class="fs-5">یادداشت</th>
-                                <th class="fs-5">وضعیت</th>
+                                <th class="fs-5 text-center">نام دارو</th>
+                                <th class="fs-5 text-center">دوز دارو</th>
+                                <th class="fs-5 text-center">زمان مصرف</th>
+                                <th class="fs-5 text-center">روز مصرف</th>
+                                <th class="fs-5 text-center">یادداشت</th>
+                                <th class="fs-5 text-center">وضعیت</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="fs-5">1</td>
-                                <td class="fs-5">استامینفن</td>
-                                <td class="fs-5">1 دونه</td>
-                                <td class="fs-5">11:00:00</td>
-                                <td class="fs-5">حتمی یاد تون نشه</td>
-                                <td class="fs-5">مصرف شد</td>
-                            </tr>
+
+
+                            <?php
+                            foreach ($medicines as $medicine) {
+                            ?>
+
+                                <tr>
+
+                                    <td class="fs-5 text-center"><?= $medicine['name'] ?></td>
+                                    <td class="fs-5 text-center"><?= $medicine['dosage'] ?></td>
+                                    <td class="fs-5 text-center"><?= $medicine['schedule'] ?></td>
+                                    <td class="fs-5 text-center"><?php
+                                    if ($medicine['date']) {
+                                        echo $medicine['date'] ;
+                                    }else if($medicine['every_day'] == 3){
+                                        echo 'هرروز' ;
+                                    }else{
+                                        echo 'نامشخص';
+                                    }
+                                    ?></td>
+                                    <td class="fs-5 text-center"><?= $medicine['notes'] ?></td>
+                                    <td class="fs-5 text-center"><?= $medicine['status'] ?></td>
+                                </tr>
+
+                            <?php
+                            }
+                            ?>
 
                         </tbody>
                     </table>
@@ -94,46 +113,68 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
             <div class="row position-relative">
                 <div class="pill_form-container">
                     <h3 class="text-center mb-4">افزودن دارو جدید</h3>
-                    <form>
+                    <form id="medicationForm" action="<?= url('student/medicine_stor') ?>" method="post">
                         <div class="mb-3">
                             <label for="drugName" class="pill_form-label">نام دارو</label>
                             <input
+                                hidden
+                                value="<?= $student['academic_year_id'] ?>"
+                                name="academic_year_id"
+                                 />
+                            <input
                                 type="text"
                                 class="form-control"
-                                id="drugName"
+                                name="name"
                                 placeholder="مثال: استامینوفن"
                                 required />
                         </div>
                         <div class="mb-3">
                             <label for="dosage" class="pill_form-label">دوز (میلی‌گرم)</label>
                             <input
-                                type="number"
+                                type="text"
                                 class="form-control"
                                 id="dosage"
+                                name="dosage"
                                 placeholder="مثال: 500"
                                 required />
                         </div>
                         <div class="mb-3">
                             <label for="schedule" class="pill_form-label">زمان‌بندی مصرف</label>
                             <input
-                                type="text"
+                                type="time"
                                 class="form-control"
                                 id="schedule"
+                                name="schedule"
                                 placeholder="مثال: صبح و شب"
                                 required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="pill_form-label">روزهای مصرف</label>
+                            <div class="d-flex flex-wrap gap-2 mb-2">
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" name="every_day">
+                                    <label class="form-check-label" for="day_saturday">هرروز</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="date" class="form-check-input" name="date">
+                                    <label class="form-check-label" for="day_saturday">انتخاب روز مصرف دارو</label>
+                                </div>
+                            </div>
+
                         </div>
                         <div class="mb-3">
                             <label for="notes" class="pill_form-label">یادداشت (اختیاری)</label>
                             <textarea
                                 class="form-control"
                                 id="notes"
+                                name="notes"
                                 rows="3"
                                 placeholder="مثال: با معده خالی مصرف نشود"></textarea>
                         </div>
-                        <button type="submit" class="btn pill_btn-custom w-100">
-                            افزودن دارو
-                        </button>
+                        <button type="submit" class="btn pill_btn-custom w-100">افزودن دارو</button>
                     </form>
+
+
                 </div>
                 <img src="<?= url('public/image/medical.png') ?>" class="pill_img2" alt="عکس دارو" />
                 <img src="<?= url('public/image/medicine.png') ?>" class="pill_img3" alt="عکس دارو" />
@@ -145,6 +186,7 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
 <?php
 require_once(BASE_PATH . '/template/app/student/layouts/footer.php');
 ?>
+
 </body>
 
 </html>
