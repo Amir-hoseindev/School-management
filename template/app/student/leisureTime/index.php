@@ -70,48 +70,38 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
     <div class="student_film">
         <div class="container">
             <div class="row py-5">
-                <div class="col-md-6">
-                    <div class="camp-card">
-                        <img
-                            src="<?= url('public/image/64f66e77d842a3439b3d333b3225678a.jpg') ?>"
-                            class="camp_card-img-top"
-                            alt="عکس کوکی" />
-                        <h4 class="camp-title">میان‌وعده پختنی - کوکی شکلاتی</h4>
-                        <p><strong>تاریخ و زمان:</strong> سه‌شنبه 10 مهر 1404، 14:00</p>
-                        <p>
-                            <strong>توضیحات:</strong> آموزش پخت کوکی با مواد ساده در خانه.
-                        </p>
-                        <p>
-                            <strong>وسایل موردنیاز:</strong> آرد، شکر، کره، شکلات آب‌شده.
-                        </p>
-                        <p><strong>مدت‌زمان:</strong> 1 ساعت</p>
-                        <p>
-                            <strong>وضعیت:</strong>
-                            <span class="text-warning">در انتظار ثبت‌نام</span>
-                        </p>
+
+
+                <?php
+                foreach ($leisureTimes as $leisureTime) {
+                ?>
+
+                    <div class="col-md-6">
+                        <div class="camp-card">
+                            <img
+                                src="<?= url('public/image/' . $leisureTime['image_path']) ?>"
+                                class="camp_card-img-top"
+                                alt="عکس کوکی" />
+                            <h4 class="camp-title"><?= $leisureTime['title'] ?></h4>
+                            <p><strong>تاریخ:</strong> <?= $leisureTime['date'] ?></p>
+                            <p>
+                                <strong>توضیحات:</strong>
+                                <?= $leisureTime['description'] ?>
+                            </p>
+                            <p>
+                                <strong>وسایل موردنیاز:</strong> 
+                                <?= $leisureTime['materials'] ?>
+                            </p>
+                          
+                            
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="camp-card">
-                        <img
-                            src="<?= url('public/image/64f66e77d842a3439b3d333b3225678a.jpg') ?>"
-                            class="camp_card-img-top"
-                            alt="عکس کوکی" />
-                        <h4 class="camp-title">میان‌وعده پختنی - کوکی شکلاتی</h4>
-                        <p><strong>تاریخ و زمان:</strong> سه‌شنبه 10 مهر 1404، 14:00</p>
-                        <p>
-                            <strong>توضیحات:</strong> آموزش پخت کوکی با مواد ساده در خانه.
-                        </p>
-                        <p>
-                            <strong>وسایل موردنیاز:</strong> آرد، شکر، کره، شکلات آب‌شده.
-                        </p>
-                        <p><strong>مدت‌زمان:</strong> 1 ساعت</p>
-                        <p>
-                            <strong>وضعیت:</strong>
-                            <span class="text-warning">در انتظار ثبت‌نام</span>
-                        </p>
-                    </div>
-                </div>
+
+                <?php
+                }
+                ?>
+
+
             </div>
         </div>
     </div>

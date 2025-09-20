@@ -121,14 +121,14 @@ class Student extends Admin
             "SELECT * FROM student_assignments WHERE assignment_id = ? AND student_id = ?",
             [$request['assignment_id'], $request['student_id']]
         )->fetch();
-             
+
         if ($assignmentST) {
             $db->update(
-            'student_assignments',
-            $assignmentST['id'],
-              ['assignment_id', 'student_id', 'submitted_file', 'status'],
-            [$request['assignment_id'], $request['student_id'], $request['submitted_file']['name'], 'ارسال شده'],
-        );
+                'student_assignments',
+                $assignmentST['id'],
+                ['assignment_id', 'student_id', 'submitted_file', 'status'],
+                [$request['assignment_id'], $request['student_id'], $request['submitted_file']['name'], 'ارسال شده'],
+            );
         } else {
             $db->insert(
                 'student_assignments',
@@ -136,9 +136,19 @@ class Student extends Admin
                 [$request['assignment_id'], $request['student_id'], $request['submitted_file']['name'], 'ارسال شده'],
             );
         }
-         $this->redirectBack();
+        $this->redirectBack();
     }
-
+    public function leisureTime()
+    {
+        $today = date('Y-m-d');
+        $db = new DataBase();
+        $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
+        $leisureTimes = $db->select('SELECT la.*  FROM leisure_activities AS la 
+        LEFT JOIN academic_years AS ay ON la.academic_year_id = ay.id AND la.date >= ?',
+        [$today]
+    );
+        require_once(BASE_PATH . '/template/app/student/leisureTime/index.php');
+    }
 
 
 
@@ -159,12 +169,7 @@ class Student extends Admin
         require_once(BASE_PATH . '/template/app/student/medicine/index.php');
     }
 
-    public function leisureTime()
-    {
-        $db = new DataBase();
-        $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
-        require_once(BASE_PATH . '/template/app/student/leisureTime/index.php');
-    }
+
     public function profile()
     {
         $db = new DataBase();
