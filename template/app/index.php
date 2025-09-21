@@ -97,7 +97,7 @@
       >
         <div class="container">
           <a class="btn btn-custom mx-0 mx-md-2 " href="<?= url('loginST') ?>">ورود دانش آموز</a>
-          <a class="btn btn-custom" href="#">ورود اساتید</a>
+          <a class="btn btn-custom" href="<?= url('loginTch') ?>">ورود اساتید</a>
           <button
             class="navbar-toggler"
             type="button"

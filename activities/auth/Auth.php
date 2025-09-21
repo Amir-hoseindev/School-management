@@ -29,7 +29,7 @@ class Auth
 
 
 
-// ======================================student
+    // ======================================student
     public function registerST()
     {
         require_once(BASE_PATH . '/template/auth/register.php');
@@ -45,7 +45,7 @@ class Auth
             flash('register_error', 'رمز عبور باید حداقل ۸ کاراکتر باشد');
             $this->redirectBack();
         } else {
-         
+
             $db = new DataBase();
             $student = $db->select('SELECT * FROM students WHERE national_id = ?', [$request['national_id']])->fetch();
             if ($student == null) {
@@ -84,7 +84,7 @@ class Auth
             $student = $db->select("SELECT * FROm students WHERE national_id = ?", [$request['national_id']])->fetch();
 
             if ($student != null) {
-               
+
                 if (password_verify($request['password'], $student['password'])) {
                     $_SESSION['student'] = $student['id'];
                     $this->redirect('student');
@@ -122,7 +122,110 @@ class Auth
         $this->redirect('');
     }
 
-// ======================================teacher
+    // ======================================teacher
+    public function registerTch()
+    {
+        require_once(BASE_PATH . '/template/auth/teacher/register.php');
+    }
 
 
+    public function registerStoreTch($request)
+    {
+        
+        if (empty($request['name']) || empty($request['last_name']) || empty($request['national_id']) || empty($request['phone']) || empty($request['profile_image']) || empty($request['password'])) {
+            flash('register_error', 'تمامی فیلد ها اجباری میباشند');
+            $this->redirectBack();
+        } else if (strlen($request['password']) < 8) {
+            flash('register_error', 'رمز عبور باید حداقل ۸ کاراکتر باشد');
+            $this->redirectBack();
+        } else {
+            $db = new DataBase();
+            $teacher = $db->select('SELECT * FROM teachers WHERE national_id = ?', [$request['national_id']])->fetch();
+            if ($teacher != null) {
+                flash('register_error', 'کاربر در سیستم وجود دارد');
+                $this->redirectBack();
+            } else {
+                if ($request['profile_image']['tmp_name'] != null) {
+                    $image = $request['profile_image'];
+                    $extension = explode('/', $image['type']);
+                    $imageName = date("Y-m-d-H-i-s") . '.' . $extension[1];
+                    $imageTemp = $image['tmp_name'];
+                    $imagePath = 'public/image/teacher/';
+                    if (is_uploaded_file($imageTemp)) {
+                        if (move_uploaded_file($imageTemp, $imagePath . $imageName)) {
+                            $requestImage = $imagePath . $imageName;
+                        } else {
+                            return false;
+                        }
+                    } else {
+                        return false;
+                    }
+                } else {
+                    unset($request['image']);
+                }
+                $request['password'] = $this->hash($request['password']);
+                $db->insert(
+                    'teachers',
+                    ['name', 'last_name', 'national_id', 'phone', 'profile_image', 'password'],
+                    [$request['name'], $request['last_name'], $request['national_id'], $request['phone'], $requestImage, $request['password']]
+                );
+                $this->redirect('loginST');
+            }
+        }
+    }
+
+
+    public function loginTch()
+    {
+        require_once(BASE_PATH . '/template/auth/teacher/login.php');
+    }
+
+
+    public function checkLoginTch($request)
+    {
+        if (empty($request['national_id']) || empty($request['password'])) {
+            flash('login_error', 'تمامی فیلد ها الزامی میباشند');
+            $this->redirectBack();
+        } else {
+            $db = new DataBase();
+            $teacher = $db->select("SELECT * FROm students WHERE national_id = ?", [$request['national_id']])->fetch();
+
+            if ($teacher != null) {
+
+                if (password_verify($request['password'], $teacher['password'])) {
+                    $_SESSION['teacher'] = $teacher['id'];
+                    $this->redirect('teacher');
+                } else {
+                    flash('login_error', 'ورود انجام نشد');
+                    $this->redirectBack();
+                }
+            } else {
+                flash('login_error', 'کاربری با این مشخصات یافت نشد');
+                $this->redirectBack();
+            }
+        }
+    }
+
+
+
+    public function checkTeacher()
+    {
+        if (isset($_SESSION['teacher'])) {
+            $db = new DataBase();
+            $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
+            if ($teacher == null) {
+                $this->redirect('');
+            }
+        } else {
+            $this->redirect('');
+        }
+    }
+    public function logoutTch()
+    {
+        if (isset($_SESSION['teacher'])) {
+            unset($_SESSION['teacher']);
+            session_destroy();
+        }
+        $this->redirect('');
+    }
 }

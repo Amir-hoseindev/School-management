@@ -186,12 +186,36 @@ uri('student/profile', 'App\Student', 'profile');
 uri('student/profileStoreST', 'App\Student', 'profileStoreST','POST');
 
 
+// student
+uri('teacher', 'App\Student', 'index');
+uri('teacher/assignments', 'App\Student', 'assignments');
+uri('teacher/assignmentDetail/{id}', 'App\Student', 'assignmentDetail');
+uri('teacher/submit_assignment', 'App\Student', 'submit_assignment','POST');
+uri('teacher/camp', 'App\Student', 'camp');
+uri('teacher/grades', 'App\Student', 'grades');
+uri('teacher/scoreReview/{id}', 'App\Student', 'scoreReview');
+uri('teacher/medicine', 'App\Student', 'medicine');
+uri('teacher/medicine_stor', 'App\Student', 'medicine_stor','POST');
+uri('teacher/video', 'App\Student', 'video');
+uri('teacher/videoDetail/{id}', 'App\Student', 'videoDetail');
+uri('teacher/leisureTime', 'App\Student', 'leisureTime');
+uri('teacher/profile', 'App\Student', 'profile');
+uri('teacher/profileStoreST', 'App\Student', 'profileStoreST','POST');
+
+
 //Auth student
 uri('registerST', 'Auth\Auth', 'registerST');
 uri('register/storeST', 'Auth\Auth', 'registerStoreST', 'POST');
 uri('loginST', 'Auth\Auth', 'loginST');
 uri('check-loginST', 'Auth\Auth', 'checkLoginST', 'POST');
 uri('logoutST', 'Auth\Auth', 'logoutST');
+
+//Auth theacher
+uri('registerTch', 'Auth\Auth', 'registerTch');
+uri('register/storeTch', 'Auth\Auth', 'registerStoreTch', 'POST');
+uri('loginTch', 'Auth\Auth', 'loginTch');
+uri('check-loginTch', 'Auth\Auth', 'checkLoginTch', 'POST');
+uri('logoutTch', 'Auth\Auth', 'logoutTch');
 
 
 
