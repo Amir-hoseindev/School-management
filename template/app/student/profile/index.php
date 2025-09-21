@@ -17,23 +17,35 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
         </p>
         <div class="student_profile">
             <img
-                src="<?= url('public/image/2533e2696189138baeb4a79e4886a9de.jpg') ?>"
+                src="<?= url( $student['profile_image']) ?>"
                 alt="عکس پروفایل"
                 class="" />
         </div>
         <p class="text-center text-danger mb-4">
-             نکات مهم: اطلاعات تغییر یافته پس از تأیید ذخیره می‌شود
+            نکات مهم: اطلاعات تغییر یافته پس از تأیید ذخیره می‌شود
         </p>
         <div class="pill_form-container">
             <h5 class="mb-3">ویرایش پروفایل</h5>
-            <form>
+            <form action="<?= url('student/profileStoreST') ?>" method="post" enctype="multipart/form-data">
+                <?php
+                $message = flash('register_error');
+                if (!empty($message)) {
+                ?>
+
+                    <div class="mb-2 alert alert-danger"> <small class="form-text text-danger">
+                            <?= $message ?>
+                        </small> </div>
+
+                <?php
+                } ?>
                 <div class="mb-3">
                     <label for="drugName" class="pill_form-label">نام</label>
                     <input
                         type="text"
                         class="form-control"
                         id="drugName"
-                        placeholder="مثال: طاها"
+                        name="name"
+                        value="<?=  $student['name'] ?>"
                         required />
                 </div>
                 <div class="mb-3">
@@ -42,7 +54,8 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                         type="text"
                         class="form-control"
                         id="drugName"
-                        placeholder="مثال: رحمانی"
+                        name="last_name"
+                        value="<?=  $student['last_name'] ?>"
                         required />
                 </div>
                 <div class="mb-3">
@@ -50,24 +63,15 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                     <input
                         type="number"
                         class="form-control"
+                        name="national_id"
                         id="drugName"
-                        placeholder="مثال: 094156987"
+                        value="<?=  $student['national_id'] ?>"
                         required />
                 </div>
-                <div class="mb-3">
-                    <label for="dosage" class="pill_form-label">انتخاب کلاس</label>
-                    <select name="" id="" class="form-control">
-                        <option value="">کلاس اول</option>
-                        <option value="">کلاس دوم</option>
-                        <option value="">کلاس سوم</option>
-                        <option value="">کلاس چهارم</option>
-                        <option value="">کلاس پنجم</option>
-                        <option value="">کلاس ششم</option>
-                    </select>
-                </div>
+              
                 <div class="mb-3">
                     <label for="schedule" class="pill_form-label">تصویر دانش آموز را واردکنید</label>
-                    <input type="file" class="form-control" required />
+                    <input type="file" class="form-control" name="profile_image" required value="<?=  $student['profile_image'] ?>" />
                 </div>
                 <div class="mb-3">
                     <label for="drugName" class="pill_form-label">شماره تماس</label>
@@ -75,7 +79,8 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                         type="number"
                         class="form-control"
                         id="drugName"
-                        placeholder="مثال: 09025648932"
+                        name="phone"
+                        value="<?=  $student['phone'] ?>"
                         required />
                 </div>
                 <div class="mb-3">
@@ -84,6 +89,7 @@ require_once(BASE_PATH . '/template/app/student/layouts/menu.php');
                         type="text"
                         class="form-control"
                         id="drugName"
+                        name="password"
                         placeholder="مثال: Omid6925"
                         required />
                 </div>

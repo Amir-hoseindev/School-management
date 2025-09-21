@@ -183,6 +183,7 @@ uri('student/video', 'App\Student', 'video');
 uri('student/videoDetail/{id}', 'App\Student', 'videoDetail');
 uri('student/leisureTime', 'App\Student', 'leisureTime');
 uri('student/profile', 'App\Student', 'profile');
+uri('student/profileStoreST', 'App\Student', 'profileStoreST','POST');
 
 
 //Auth student
