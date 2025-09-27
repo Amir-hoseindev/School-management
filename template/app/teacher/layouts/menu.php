@@ -10,7 +10,7 @@
             <span class="fw-bold"> ویرایش پروفایل </span>
             <i class="bi bi-person-circle mx-2"></i>
           </a>
-           <p class="fs-5 fw-bold text-dark mx-2 mx-xl-5 my-0">طاها رحمانی</p>
+           <p class="fs-5 fw-bold text-dark mx-2 mx-xl-5 my-0"><?= $teacher['name'] .' '. $teacher['last_name'] ?></p>
           <button
             class="navbar-toggler"
             type="button"
@@ -29,12 +29,12 @@
                 <a
                   class="nav-link active fs-5 fw-bold"
                   aria-current="page"
-                  href="#"
+                  href="<?= url('teacher')?>"
                   >صفحه اصلی</a
                 >
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold" href="#">تکالیف</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('teacher/assignments')?>">تکالیف</a>
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
                 <a class="nav-link fs-5 fw-bold">فیلم های آموزشی</a>

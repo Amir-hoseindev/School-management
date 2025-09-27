@@ -89,5 +89,3 @@
         </div>
       </footer>
     </section>
-  </body>
-</html>

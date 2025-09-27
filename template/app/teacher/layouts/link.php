@@ -19,4 +19,4 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../public/css.css" />
+    <link rel="stylesheet" href="<?= url('public/css/css.css') ?>" />

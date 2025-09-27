@@ -169,7 +169,7 @@ class Auth
                     ['name', 'last_name', 'national_id', 'phone', 'profile_image', 'password'],
                     [$request['name'], $request['last_name'], $request['national_id'], $request['phone'], $requestImage, $request['password']]
                 );
-                $this->redirect('loginST');
+                $this->redirect('loginTch');
             }
         }
     }
@@ -188,7 +188,7 @@ class Auth
             $this->redirectBack();
         } else {
             $db = new DataBase();
-            $teacher = $db->select("SELECT * FROm students WHERE national_id = ?", [$request['national_id']])->fetch();
+            $teacher = $db->select("SELECT * FROm teachers WHERE national_id = ?", [$request['national_id']])->fetch();
 
             if ($teacher != null) {
 

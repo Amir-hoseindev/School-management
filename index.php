@@ -186,21 +186,28 @@ uri('student/profile', 'App\Student', 'profile');
 uri('student/profileStoreST', 'App\Student', 'profileStoreST','POST');
 
 
-// student
-uri('teacher', 'App\Student', 'index');
-uri('teacher/assignments', 'App\Student', 'assignments');
-uri('teacher/assignmentDetail/{id}', 'App\Student', 'assignmentDetail');
-uri('teacher/submit_assignment', 'App\Student', 'submit_assignment','POST');
-uri('teacher/camp', 'App\Student', 'camp');
-uri('teacher/grades', 'App\Student', 'grades');
-uri('teacher/scoreReview/{id}', 'App\Student', 'scoreReview');
-uri('teacher/medicine', 'App\Student', 'medicine');
-uri('teacher/medicine_stor', 'App\Student', 'medicine_stor','POST');
-uri('teacher/video', 'App\Student', 'video');
-uri('teacher/videoDetail/{id}', 'App\Student', 'videoDetail');
-uri('teacher/leisureTime', 'App\Student', 'leisureTime');
-uri('teacher/profile', 'App\Student', 'profile');
-uri('teacher/profileStoreST', 'App\Student', 'profileStoreST','POST');
+// teacher
+uri('teacher', 'App\Teacher', 'index');
+uri('teacher/assignments', 'App\Teacher', 'assignments');
+uri('teacher/assignmentDetail/{id}/{id}', 'App\Teacher', 'assignmentDetail' );
+uri('teacher/editAssignment/{id}', 'App\Teacher', 'editAssignment' );
+uri('teacher/recordEditAssignment', 'App\Teacher', 'recordEditAssignment','POST' );
+uri('teacher/submit_assignment', 'App\Teacher', 'submit_assignment','POST');
+uri('teacher/list_assignment/{id}', 'App\Teacher', 'list_assignment');
+uri('teacher/recordList_assignment', 'App\Teacher', 'recordList_assignment','POST');
+uri('teacher/studentList_assignment/{id}/{id}', 'App\Teacher', 'studentList_assignment');
+uri('teacher/record_studentList_assignment', 'App\Teacher', 'record_studentList_assignment','POST');
+
+uri('teacher/camp', 'App\Teacher', 'camp');
+uri('teacher/grades', 'App\Teacher', 'grades');
+uri('teacher/scoreReview/{id}', 'App\Teacher', 'scoreReview');
+uri('teacher/medicine', 'App\Teacher', 'medicine');
+uri('teacher/medicine_stor', 'App\Teacher', 'medicine_stor','POST');
+uri('teacher/video', 'App\Teacher', 'video');
+uri('teacher/videoDetail/{id}', 'App\Teacher', 'videoDetail');
+uri('teacher/leisureTime', 'App\Teacher', 'leisureTime');
+uri('teacher/profile', 'App\Teacher', 'profile');
+uri('teacher/profileStoreST', 'App\Teacher', 'profileStoreST','POST');
 
 
 //Auth student
