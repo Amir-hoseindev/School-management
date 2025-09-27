@@ -100,7 +100,7 @@ require_once(BASE_PATH . '/template/app/teacher/layouts/menu.php');
                   </a>
                 </div>
                 <div class="col-6 col-lg-4">
-                  <a href="" class="fild_box btn px-1">
+                  <a href="<?= url('teacher/medicine') ?>" class="fild_box btn px-1">
                     <div class="fild_box-content">
                       <img src="<?= url('public/image/medicine.png') ?>" class="img-fuind" alt="دارو" />
                       <p>دارو ها</p>

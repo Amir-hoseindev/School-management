@@ -237,10 +237,10 @@ class Teacher extends Admin
         if (empty($request['score']) || empty($request['student_id']) || empty($request['assignment_id'])) {
             flash('assignment', 'مشکلی در ثبت نمره به وجود آمده لطفا یک بار دیگه سعی کنید');
             $this->redirectBack();
-        }elseif (!in_array((int)$request['score'] , [1,2,3,4])) {
+        } elseif (!in_array((int)$request['score'], [1, 2, 3, 4])) {
             flash('assignment', 'لطفا نمره را درست وارد کنید');
             $this->redirectBack();
-        }else {
+        } else {
             $db = new DataBase();
             $list_student = $db->select(
                 'SELECT id FROM student_assignments WHERE assignment_id  = ? AND student_id = ?;',
@@ -263,7 +263,7 @@ class Teacher extends Admin
         }
         $this->redirectBack();
     }
-    public function studentList_assignment($id,$subject)
+    public function studentList_assignment($id, $subject)
     {
         $db = new DataBase();
         $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
@@ -291,16 +291,16 @@ class Teacher extends Admin
         )->fetchAll();
         require_once(BASE_PATH . '/template/app/teacher/assignments/studentList_assignment.php');
     }
-  public function record_studentList_assignment($request)
+    public function record_studentList_assignment($request)
     {
-  
+
         if (empty($request['score']) || empty($request['student_id']) || empty($request['assignment_id'])) {
             flash('assignment', 'مشکلی در ثبت نمره به وجود آمده لطفا یک بار دیگه سعی کنید');
             $this->redirectBack();
-        }elseif (!in_array((int)$request['score'] , [1,2,3,4])) {
+        } elseif (!in_array((int)$request['score'], [1, 2, 3, 4])) {
             flash('assignment', 'لطفا نمره را درست وارد کنید');
             $this->redirectBack();
-        }else {
+        } else {
             $db = new DataBase();
             $list_student = $db->select(
                 'SELECT id FROM student_assignments WHERE assignment_id  = ? AND student_id = ?;',
@@ -323,7 +323,50 @@ class Teacher extends Admin
         }
         $this->redirectBack();
     }
-
+    public function medicine()
+    {
+        $db = new DataBase();
+        $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
+        $medicines = $db->select(
+            'SELECT 
+    m.id AS medication_id,
+    m.student_id,
+    m.name AS medication_name,
+    m.dosage,
+    m.schedule,
+    m.date AS medication_date,
+    m.notes,
+    m.status,
+    s.name AS student_name,
+    s.last_name AS student_lastname,
+    s.grade AS student_grade,
+    tg.grade AS teacher_grade
+FROM 
+    medications m
+INNER JOIN 
+    students s ON m.student_id = s.id
+INNER JOIN 
+    teacher_grades tg ON s.grade = tg.grade
+WHERE 
+    tg.teacher_id = ?;',
+            [$_SESSION['teacher']]
+        )->fetchAll();
+        require_once(BASE_PATH . '/template/app/teacher/medicine/index.php');
+    }
+    public function medicine_stor($id)
+    {
+        $db = new DataBase();
+        $medication = $db->select('SELECT * FROM medications WHERE id = ?', [$id])->fetch();
+        if ($medication) {
+            $db->update(
+                'medications',
+                $id,
+                ['status'],
+                ['دارو داده شد']
+            );
+        }
+        $this->redirectBack();
+    }
 
 
 
@@ -403,31 +446,7 @@ class Teacher extends Admin
         );
         require_once(BASE_PATH . '/template/app/student/leisureTime/index.php');
     }
-    public function medicine()
-    {
-        $db = new DataBase();
-        $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
-        $medicines = $db->select('SELECT * FROM medications WHERE student_id  = ?', [$_SESSION['student']])->fetchAll();
-        require_once(BASE_PATH . '/template/app/student/medicine/index.php');
-    }
-    public function medicine_stor($request)
-    {
-        $db = new DataBase();
-        if ($request['date']) {
-            $db->insert(
-                'medications',
-                ['Student_id', 'academic_year_id', 'name', 'dosage', 'schedule', 'date', 'notes', 'status'],
-                [$_SESSION['student'], $request['academic_year_id'], $request['name'], $request['dosage'], $request['schedule'], $request['date'], $request['notes'], 'دارو ثبت شد']
-            );
-        } else {
-            $db->insert(
-                'medications',
-                ['Student_id', 'academic_year_id', 'name', 'dosage', 'schedule', 'every_day', 'notes', 'status'],
-                [$_SESSION['student'], $request['academic_year_id'], $request['name'], $request['dosage'], $request['schedule'], 3, $request['notes'], 'دارو ثبت شد']
-            );
-        }
-        $this->redirectBack();
-    }
+
     public function profile()
     {
         $db = new DataBase();

@@ -197,12 +197,12 @@ uri('teacher/list_assignment/{id}', 'App\Teacher', 'list_assignment');
 uri('teacher/recordList_assignment', 'App\Teacher', 'recordList_assignment','POST');
 uri('teacher/studentList_assignment/{id}/{id}', 'App\Teacher', 'studentList_assignment');
 uri('teacher/record_studentList_assignment', 'App\Teacher', 'record_studentList_assignment','POST');
+uri('teacher/medicine', 'App\Teacher', 'medicine');
+uri('teacher/medicine_stor/{id}', 'App\Teacher', 'medicine_stor');
 
 uri('teacher/camp', 'App\Teacher', 'camp');
 uri('teacher/grades', 'App\Teacher', 'grades');
 uri('teacher/scoreReview/{id}', 'App\Teacher', 'scoreReview');
-uri('teacher/medicine', 'App\Teacher', 'medicine');
-uri('teacher/medicine_stor', 'App\Teacher', 'medicine_stor','POST');
 uri('teacher/video', 'App\Teacher', 'video');
 uri('teacher/videoDetail/{id}', 'App\Teacher', 'videoDetail');
 uri('teacher/leisureTime', 'App\Teacher', 'leisureTime');
