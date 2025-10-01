@@ -9,6 +9,7 @@ class Teacher extends Admin
 {
     function __construct()
     {
+        parent::__construct();
         $auth = new Auth();
         $auth->checkTeacher();
     }
@@ -367,85 +368,416 @@ WHERE
         }
         $this->redirectBack();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function video()
     {
         $db = new DataBase();
-        $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
-        $grades = $db->select(
-            'SELECT gs.*
-                    FROM grade_subjects gs
-                    WHERE gs.grade = (SELECT s.grade FROM students s WHERE s.id = ?)
-                    AND gs.academic_year_id = (SELECT s.academic_year_id FROM students s WHERE s.id = ?);',
-            [$_SESSION['student'], $_SESSION['student']]
-        )->fetchAll();
-        require_once(BASE_PATH . '/template/app/student/video/index.php');
+        $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
+        $teacher_subjects = $db->select('SELECT t.id AS teacher_id,
+        t.name AS teacher_name,
+        t.last_name AS teacher_lastname,
+        tg.grade AS grade,
+        ts.id AS teacher_subject_id,
+        ts.teacher_grade_id AS teacher_subject_grade_id,
+        ts.subject AS teacher_subject,
+        gs.image_path AS subject_image
+        FROM teachers t
+        JOIN teacher_grades tg 
+        ON t.id = tg.teacher_id
+        JOIN teacher_subjects ts 
+        ON tg.id = ts.teacher_grade_id
+        JOIN grade_subjects gs 
+        ON tg.academic_year_id = gs.academic_year_id
+        AND tg.grade = gs.grade
+        AND ts.subject = gs.subject
+        WHERE t.id = ?
+        ORDER BY tg.grade, ts.subject;', [$_SESSION['teacher']])->fetchAll();
+        require_once(BASE_PATH . '/template/app/teacher/video/index.php');
     }
-    public function videoDetail($id)
-    {
-        $db = new DataBase();
-        $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
-        $educational_videos = $db->select(
-            'SELECT ev.*
-                    FROM educational_videos ev
-                    WHERE ev.grade = (SELECT gs.grade FROM grade_subjects gs WHERE gs.id = ?)
-                    AND ev.subject = (SELECT gs.subject FROM grade_subjects gs WHERE gs.id = ?)
-                    AND ev.academic_year_id = (SELECT gs.academic_year_id FROM grade_subjects gs WHERE gs.id = ?);',
-            [$id, $id, $id]
-        )->fetchAll();
-        require_once(BASE_PATH . '/template/app/student/video/videoDetail.php');
-    }
-    public function grades()
-    {
-        $db = new DataBase();
-        $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
-        $grades = $db->select('SELECT * FROM grades WHERE student_id  = ?', [$_SESSION['student']])->fetchAll();
-
-        require_once(BASE_PATH . '/template/app/student/grades/index.php');
-    }
-    public function scoreReview($id)
-    {
-        $db = new DataBase();
-        $db->update(
-            'grades',
-            $id,
-            ['answer', 'status'],
-            [3, 'درخواست بازنگری داده شده']
-        );
-        $this->redirectBack();
-    }
-
-    public function leisureTime()
+    public function videoDetail($grade, $subject)
     {
         $today = date('Y-m-d');
         $db = new DataBase();
-        $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
-        $leisureTimes = $db->select(
-            'SELECT la.*  FROM leisure_activities AS la 
-        LEFT JOIN academic_years AS ay ON la.academic_year_id = ay.id AND la.date >= ?',
-            [$today]
-        );
-        require_once(BASE_PATH . '/template/app/student/leisureTime/index.php');
+        $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
+        $videos = $db->select(
+            'SELECT 
+            ev.id AS video_id,
+            ev.title AS video_title,
+            ev.description AS video_description,  
+            ev.subject AS video_subject, 
+            ev.grade AS video_grade, 
+            ev.created_at AS video_date, 
+            ev.video_path AS video_file_path
+                FROM educational_videos ev
+                WHERE ev.teacher_id = ?
+                AND ev.grade = (SELECT tg.grade FROM teacher_grades tg WHERE id = ?)
+                AND ev.subject = (SELECT tg.subject FROM teacher_subjects tg WHERE id = ?)
+                AND ev.academic_year_id = (SELECT ay.id FROM academic_years ay WHERE ? >= start_date AND ? <= end_date And is_active = 1 );',
+            [$_SESSION['teacher'], $grade, $subject, $today, $today]
+        )->fetchAll();
+
+        $subjects = $db->select(
+            'SELECT ts.subject, tg.academic_year_id, tg.grade FROM teacher_subjects ts LEFT JOIN teacher_grades tg ON teacher_grade_id = tg.id AND ts.teacher_id = ?
+            WHERE tg.id = ?;',
+            [$_SESSION['teacher'], $grade]
+        )->fetchAll();
+
+        $subject_teacher = $db->select(
+            'SELECT ts.subject, tg.grade FROM teacher_subjects ts LEFT JOIN teacher_grades tg ON teacher_grade_id = tg.id AND ts.teacher_id = ?
+                WHERE tg.grade = (SELECT tg.grade FROM teacher_grades tg WHERE id = ?)
+                AND ts.subject = (SELECT tg.subject FROM teacher_subjects tg WHERE id = ?)
+                AND tg.academic_year_id = (SELECT ay.id FROM academic_years ay WHERE ? >= ay.start_date AND ? <= ay.end_date And is_active = 1 );',
+            [$_SESSION['teacher'], $grade, $subject, $today, $today])->fetch();
+         
+        require_once(BASE_PATH . '/template/app/teacher/video/videoDetail.php');
     }
+    public function editVideo($id)
+    {
+        $db = new DataBase();
+        $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
+        $video = $db->select("SELECT * FROM educational_videos WHERE id = ? ", [$id])->fetch();
+        $teacher_subject = $db->select(
+            "SELECT ts.subject, tg.id FROM teacher_subjects ts
+        LEFT JOIN teacher_grades tg ON tg.id = ts.teacher_grade_id AND tg.teacher_id = ? WHERE tg.grade = ?",
+            [$_SESSION['teacher'], $video['grade']]
+        )->fetchAll();
+        require_once(BASE_PATH . '/template/app/teacher/video/editVideo.php');
+    }
+    public function recordEditVideo($request)
+    {
+        if (empty($request['title']) || empty($request['video_path']) || empty($request['subject']) || empty($request['description'])) {
+            flash('video', 'تمامی فیلد ها اجباری میباشند');
+            $this->redirectBack();
+        }
+        $db = new DataBase();
+        $video = $db->select(
+            "SELECT * FROM educational_videos WHERE id = ?",
+            [$request['id']]
+        )->fetch();
+
+        if ($video) {
+
+            if ($request['video_path']['tmp_name'] != null) {
+                $this->removeImage($video['video_path']);
+                $image = $request['video_path'];
+                $extension = explode('/', $image['type']);
+                $imageName = date("Y-m-d-H-i-s") . '.' . $extension[1];
+                $imageTemp = $image['tmp_name'];
+                $imagePath = 'public/video/';
+
+                if (is_uploaded_file($imageTemp)) {
+
+                    if (move_uploaded_file($imageTemp, $imagePath . $imageName)) {
+                        $requestImage = $imagePath . $imageName;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            } else {
+                flash('video', 'ویدیوی درستی انتخاب نشده است');
+                $this->redirectBack();
+            }
+
+
+            $teacher_subjects = $db->select(
+                'SELECT
+        tg.id AS grade_id,
+        ts.id AS teacher_subject_id
+        FROM teacher_grades tg 
+        JOIN teacher_subjects ts 
+        ON tg.id = ts.teacher_grade_id 
+        AND tg.grade = ?
+        AND ts.subject = ?
+        WHERE tg.teacher_id = ?;',
+                [$video['grade'], $video['subject'], $_SESSION['teacher']]
+            )->fetch();
+            $db->update(
+                'educational_videos',
+                $request['id'],
+                ['title', 'description', 'video_path', 'subject'],
+                [$request['title'], $request['description'], $requestImage, $request['subject']],
+            );
+            $this->redirect('/teacher/videoDetail/' . $teacher_subjects['grade_id'] . '/' . $teacher_subjects['teacher_subject_id']);
+        } else {
+            $this->redirectBack();
+        }
+        $this->redirectBack();
+    }
+    public function deleteVideo($id)
+    {
+        $db = new DataBase();
+        $video = $db->select(
+            "SELECT * FROM educational_videos WHERE id = ?",
+            [$id]
+        )->fetch();
+
+        if ($video) {
+            $this->removeImage($video['video_path']);
+            $db->delete('educational_videos', $id);
+            $this->redirectBack();
+        } else {
+            flash('video', 'ویدیوی درستی انتخاب نشده است');
+            $this->redirectBack();
+        }
+        $this->redirectBack();
+    }
+   public function storVideo($request)
+    {
+     
+        if (empty($request['title']) || empty($request['video_path']) || empty($request['subject']) || empty($request['description'])) {
+            flash('video', 'تمامی فیلد ها اجباری میباشند');
+            $this->redirectBack();
+        }
+            if ($request['video_path']['tmp_name'] != null) {
+                $image = $request['video_path'];
+                $extension = explode('/', $image['type']);
+                $imageName = date("Y-m-d-H-i-s") . '.' . $extension[1];
+                $imageTemp = $image['tmp_name'];
+                $imagePath = 'public/video/';
+
+                if (is_uploaded_file($imageTemp)) {
+
+                    if (move_uploaded_file($imageTemp, $imagePath . $imageName)) {
+                        $requestImage = $imagePath . $imageName;
+                        $db = new DataBase();
+                         $db->insert(
+                'educational_videos',
+                ['teacher_id', 'academic_year_id', 'grade', 'title', 'description', 'video_path', 'subject'],
+                [$_SESSION['teacher'], $request['academic_year_id'], $request['grade'], $request['title'], $request['description'], $requestImage, $request['subject']]);
+                
+                } else {
+                    return false;
+                }
+            } else {
+                flash('video', 'ویدیوی درستی انتخاب نشده است');
+                $this->redirectBack();
+            }
+        $this->redirectBack();
+    }
+    }
+ public function grades()
+    {
+        $db = new DataBase();
+        $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
+        $teacher_subjects = $db->select('SELECT t.id AS teacher_id,
+        t.name AS teacher_name,
+        t.last_name AS teacher_lastname,
+        tg.grade AS grade,
+        ts.id AS teacher_subject_id,
+        ts.teacher_grade_id AS teacher_subject_grade_id,
+        ts.subject AS teacher_subject,
+        gs.image_path AS subject_image
+        FROM teachers t
+        JOIN teacher_grades tg 
+        ON t.id = tg.teacher_id
+        JOIN teacher_subjects ts 
+        ON tg.id = ts.teacher_grade_id
+        JOIN grade_subjects gs 
+        ON tg.academic_year_id = gs.academic_year_id
+        AND tg.grade = gs.grade
+        AND ts.subject = gs.subject
+        WHERE t.id = ?
+        ORDER BY tg.grade, ts.subject;', [$_SESSION['teacher']])->fetchAll();
+
+        require_once(BASE_PATH . '/template/app/teacher/grades/index.php');
+    }
+ public function gradesDetail($grade, $subject)
+    {
+        $today = date('Y-m-d');
+        $db = new DataBase();
+        $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
+        $grades = $db->select(
+            'SELECT 
+            g.id AS grade_id,
+            g.title AS grade_title,
+            g.description AS grade_description,
+            g.student_id  AS grade_student_id ,
+            g.academic_year_id  AS grade_academic_year_id , 
+            g.subject AS grade_subject, 
+            g.grade AS grade_grade, 
+            g.score AS grade_score, 
+            g.date AS grade_date, 
+            g.answer AS grade_answer, 
+            g.status AS grade_status
+                FROM grades g
+                WHERE g.teacher_id = ?
+                AND g.grade = (SELECT tg.grade FROM teacher_grades tg WHERE id = ?)
+                AND g.subject = (SELECT tg.subject FROM teacher_subjects tg WHERE id = ?)
+                AND g.academic_year_id = (SELECT ay.id FROM academic_years ay WHERE ? >= start_date AND ? <= end_date And is_active = 1 )
+                ;',
+            [$_SESSION['teacher'], $grade, $subject, $today, $today]
+        )->fetchAll();
+
+        $students = $db->select(
+            'SELECT 
+                    g.id AS grade_id,
+                    g.status AS grade_status,
+                    s.id AS student_id,
+                    s.name AS student_name,
+                    s.last_name AS student_lastname,
+                    s.grade AS student_grade,
+                    COUNT(DISTINCT g.id) AS total_grade,
+                    COUNT(DISTINCT CASE WHEN g.answer >= 3 THEN g.id END) AS completed_grade,
+                    CEILING(COALESCE(AVG(CASE WHEN g.score IS NOT NULL THEN g.score ELSE 1 END), 1)) AS average_score
+                FROM students s
+                LEFT JOIN grades g ON s.id = g.student_id AND g.teacher_id = ?
+                WHERE g.grade = s.grade  
+                AND g.subject = ?    
+                ORDER BY s.last_name DESC;',
+            [$_SESSION['teacher'], $grades[0]['grade_subject']]
+        )->fetchAll();
+
+        $subjects = $db->select(
+            'SELECT ts.subject, tg.grade, tg.academic_year_id  FROM teacher_subjects ts LEFT JOIN teacher_grades tg ON teacher_grade_id = tg.id AND ts.teacher_id = ?
+            WHERE tg.id = ?;',
+            [$_SESSION['teacher'], $grade]
+        )->fetchAll();
+      
+        require_once(BASE_PATH . '/template/app/teacher/grades/gradeDetail.php');
+    }
+    public function editGrades($id)
+    {
+        $db = new DataBase();
+        $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
+        $grade = $db->select("SELECT * FROM grades WHERE id = ? ", [$id])->fetch();
+        $teacher_subject = $db->select(
+            "SELECT ts.subject, tg.id FROM teacher_subjects ts
+        LEFT JOIN teacher_grades tg ON tg.id = ts.teacher_grade_id AND tg.teacher_id = ? WHERE tg.grade = ?",
+            [$_SESSION['teacher'], $grade['grade']]
+        )->fetchAll();
+        require_once(BASE_PATH . '/template/app/teacher/grades/editGrade.php');
+    }
+    public function recordEditGrades($request)
+    {
+        if (empty($request['title']) || empty($request['date']) || empty($request['subject']) || empty($request['description'])) {
+            flash('grade', 'تمامی فیلد ها اجباری میباشند');
+            $this->redirectBack();
+        }
+        $db = new DataBase();
+        $grade = $db->select(
+            "SELECT * FROM grades WHERE id = ?",
+            [$request['id']]
+        )->fetch();
+
+        if ($grade) {
+            $grades_teaher = $db->select(
+            'SELECT
+        tg.id AS grade_id,
+        ts.id AS teacher_subject_id
+        FROM teacher_grades tg 
+        JOIN teacher_subjects ts 
+        ON tg.id = ts.teacher_grade_id 
+        AND tg.grade = ?
+        AND ts.subject = ?
+        WHERE tg.teacher_id = ?;',
+            [$grade['grade'], $grade['subject'], $_SESSION['teacher']]
+        )->fetch();
+            $db->update(
+                'grades',
+                $grade['id'],
+                ['title', 'description', 'date', 'subject'],
+                [$request['title'], $request['description'], $request['date'], $request['subject']],
+            );
+            $this->redirect('teacher/gradesDetail/' . $grades_teaher['grade_id'] . '/' . $grades_teaher['teacher_subject_id']);
+        } else {
+            $this->redirectBack();
+        }
+        $this->redirectBack();
+    }
+    public function submit_grades($request)
+    {
+        if (empty($request['title']) || empty($request['date']) || empty($request['subject']) || empty($request['description'])) {
+            flash('grade', 'تمامی فیلد ها اجباری میباشند');
+            $this->redirectBack();
+        } else {
+            
+            $db = new DataBase();
+            $db->insert(
+                'grades',
+                ['teacher_id', 'academic_year_id', 'title', 'description', 'date', 'subject', 'grade'],
+                [$_SESSION['teacher'], $request['academic_year_id'], $request['title'], $request['description'], $request['date'], $request['subject'], $request['grade']],
+            );
+        }
+        $this->redirectBack();
+    }
+    public function list_grades($id)
+    {
+        $db = new DataBase();
+        $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
+        $list_student = $db->select(
+            'SELECT 
+    s.id AS student_id,
+    s.name AS student_name,
+    s.last_name AS student_lastname,
+    g.score,
+    g.status AS grade_status,
+    g.id AS grade_id,
+    g.title AS grade_title,
+    g.description AS grade_description,
+    g.date AS grade_date,
+    g.subject AS grade_subject,
+    g.grade AS grade_grade
+    FROM students s  
+    LEFT JOIN grades g ON s.id = g.student_id
+    WHERE s.grade = g.grade
+    AND g.id = ?  
+    ORDER BY s.last_name, s.name;',
+            [$id]
+        )->fetchAll();
+
+        require_once(BASE_PATH . '/template/app/teacher/grades/list_grade.php');
+    }
+    public function recordList_grades($request)
+    {
+        if (empty($request['score']) || empty($request['student_id']) || empty($request['grade_id'])) {
+            flash('grade', 'مشکلی در ثبت نمره به وجود آمده لطفا یک بار دیگه سعی کنید');
+            $this->redirectBack();
+        } elseif (!in_array((int)$request['score'], [1, 2, 3, 4])) {
+            flash('grade', 'لطفا نمره را درست وارد کنید');
+            $this->redirectBack();
+        } else {
+            $db = new DataBase();
+            $list_student = $db->select(
+                'SELECT id FROM grades WHERE id  = ? AND student_id = ?;',
+                [$request['grade_id'], $request['student_id']]
+            )->fetch();
+            if ($list_student) {
+                $db->update(
+                    'grades',
+                    $list_student['id'],
+                    ['score', 'status', 'answer'],
+                    [$request['score'], 'نمره تغییر کرد', 4],
+                );
+            } else {
+                $db->insert(
+                    'grades',
+                    ['student_id ', 'answer', 'score', 'status'],
+                    [$request['student_id '], 4, $request['score'], 'نمره ثبت شد'],
+                );
+            }
+        }
+        $this->redirectBack();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+   
 
     public function profile()
     {

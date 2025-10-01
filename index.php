@@ -1,5 +1,7 @@
 <?php
 
+use App\Admin;
+
 //session start
 session_start();
 
@@ -31,7 +33,7 @@ require_once 'activities/App/Student.php';
 require_once 'activities/App/Teacher.php';
 
 
-
+$admin = new Admin();
 
 
 function uri($reservedUrl, $class, $method, $requestMethod = 'GET')
@@ -199,13 +201,27 @@ uri('teacher/studentList_assignment/{id}/{id}', 'App\Teacher', 'studentList_assi
 uri('teacher/record_studentList_assignment', 'App\Teacher', 'record_studentList_assignment','POST');
 uri('teacher/medicine', 'App\Teacher', 'medicine');
 uri('teacher/medicine_stor/{id}', 'App\Teacher', 'medicine_stor');
-
-uri('teacher/camp', 'App\Teacher', 'camp');
-uri('teacher/grades', 'App\Teacher', 'grades');
-uri('teacher/scoreReview/{id}', 'App\Teacher', 'scoreReview');
 uri('teacher/video', 'App\Teacher', 'video');
-uri('teacher/videoDetail/{id}', 'App\Teacher', 'videoDetail');
-uri('teacher/leisureTime', 'App\Teacher', 'leisureTime');
+uri('teacher/videoDetail/{id}/{id}', 'App\Teacher', 'videoDetail');
+uri('teacher/editVideo/{id}', 'App\Teacher', 'editVideo' );
+uri('teacher/recordEditVideo', 'App\Teacher', 'recordEditVideo','POST' );
+uri('teacher/deleteVideo/{id}', 'App\Teacher', 'deleteVideo' );
+uri('teacher/storVideo', 'App\Teacher', 'storVideo','POST');
+uri('teacher/grades', 'App\Teacher', 'grades');
+
+
+uri('teacher/gradesDetail/{id}/{id}', 'App\Teacher', 'gradesDetail' );
+uri('teacher/editGrades/{id}', 'App\Teacher', 'editGrades' );
+uri('teacher/recordEditGrades', 'App\Teacher', 'recordEditGrades','POST' );
+uri('teacher/submit_grades', 'App\Teacher', 'submit_grades','POST');
+uri('teacher/list_grades/{id}', 'App\Teacher', 'list_grades');
+uri('teacher/recordList_grades', 'App\Teacher', 'recordList_grades','POST');
+uri('teacher/studentList_grades/{id}/{id}', 'App\Teacher', 'studentList_grades');
+uri('teacher/record_studentList_grades', 'App\Teacher', 'record_studentList_grades','POST');
+
+
+
+
 uri('teacher/profile', 'App\Teacher', 'profile');
 uri('teacher/profileStoreST', 'App\Teacher', 'profileStoreST','POST');
 

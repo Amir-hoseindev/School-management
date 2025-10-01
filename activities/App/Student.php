@@ -9,6 +9,7 @@ class Student extends Admin
 {
     function __construct()
     {
+        parent::__construct();
         $auth = new Auth();
         $auth->checkStudent();
     }

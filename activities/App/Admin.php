@@ -58,6 +58,7 @@ class Admin{
 
         protected function removeImage($path)
         {
+                
                 $path = trim($this->basePath, '/ ') . '/' . trim($path, '/ ');
                 if(file_exists($path))
                 {

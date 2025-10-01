@@ -108,7 +108,7 @@ require_once(BASE_PATH . '/template/app/teacher/layouts/menu.php');
                   </a>
                 </div>
                 <div class="col-6 col-lg-4">
-                  <a href="" class="fild_box btn px-1">
+                  <a href="<?= url('teacher/video') ?>" class="fild_box btn px-1">
                     <div class="fild_box-content">
                       <img src="<?= url('public/image/webinar.png') ?>" class="img-fuind" alt="فیلم های آموزشی" />
                       <p>فیلم های آموزشی</p>
@@ -116,7 +116,7 @@ require_once(BASE_PATH . '/template/app/teacher/layouts/menu.php');
                   </a>
                 </div>
                 <div class="col-6 col-lg-4">
-                  <a href="" class="fild_box btn px-1">
+                  <a href="<?= url('teacher/grades') ?>" class="fild_box btn px-1">
                     <div class="fild_box-content">
                       <img src="<?= url('public/image/test.png') ?>" class="img-fuind" alt="نمرات" />
                       <p>نمرات</p>
