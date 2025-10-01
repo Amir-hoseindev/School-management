@@ -208,22 +208,21 @@ uri('teacher/recordEditVideo', 'App\Teacher', 'recordEditVideo','POST' );
 uri('teacher/deleteVideo/{id}', 'App\Teacher', 'deleteVideo' );
 uri('teacher/storVideo', 'App\Teacher', 'storVideo','POST');
 uri('teacher/grades', 'App\Teacher', 'grades');
-
-
 uri('teacher/gradesDetail/{id}/{id}', 'App\Teacher', 'gradesDetail' );
 uri('teacher/editGrades/{id}', 'App\Teacher', 'editGrades' );
 uri('teacher/recordEditGrades', 'App\Teacher', 'recordEditGrades','POST' );
 uri('teacher/submit_grades', 'App\Teacher', 'submit_grades','POST');
 uri('teacher/list_grades/{id}', 'App\Teacher', 'list_grades');
 uri('teacher/recordList_grades', 'App\Teacher', 'recordList_grades','POST');
-uri('teacher/studentList_grades/{id}/{id}', 'App\Teacher', 'studentList_grades');
-uri('teacher/record_studentList_grades', 'App\Teacher', 'record_studentList_grades','POST');
-
-
-
-
 uri('teacher/profile', 'App\Teacher', 'profile');
-uri('teacher/profileStoreST', 'App\Teacher', 'profileStoreST','POST');
+uri('teacher/profileStoreTch', 'App\Teacher', 'profileStoreTch','POST');
+uri('teacher/profileAdd_subject', 'App\Teacher', 'profileAdd_subject','POST');
+
+
+
+uri('teacher/presence', 'App\Teacher', 'presence');
+
+
 
 
 //Auth student

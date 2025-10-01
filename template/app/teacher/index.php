@@ -125,7 +125,7 @@ require_once(BASE_PATH . '/template/app/teacher/layouts/menu.php');
                 </div>
                
                 <div class="col-6 col-lg-4">
-                  <a  href="index.html" class="fild_box btn px-1">
+                  <a href="<?= url('teacher/presence')?>" class="fild_box btn px-1">
                     <div class="fild_box-content">
                       <img src="<?= url('public/image/active.png') ?>" class="img-fuind" alt="حضور و غیاب" />
                       <p>حضور و غیاب</p>

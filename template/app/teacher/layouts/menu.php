@@ -6,7 +6,7 @@
         aria-label="Eleventh navbar example"
       >
         <div class="container">
-          <a class="btn btn-custom mx-2 d-flex align-items-center" href="#">
+          <a class="btn btn-custom mx-2 d-flex align-items-center" href="<?= url('teacher/profile') ?>">
             <span class="fw-bold"> ویرایش پروفایل </span>
             <i class="bi bi-person-circle mx-2"></i>
           </a>
@@ -37,16 +37,16 @@
                 <a class="nav-link fs-5 fw-bold" href="<?= url('teacher/assignments')?>">تکالیف</a>
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold">فیلم های آموزشی</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('teacher/video')?>">فیلم های آموزشی</a>
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold">نمرات</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('teacher/grades')?>">نمرات</a>
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold">حضور و غیاب</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('teacher/presence')?>">حضور و غیاب</a>
               </li>
               <li class="nav-item mx-xxl-3 mx-1">
-                <a class="nav-link fs-5 fw-bold">خروج</a>
+                <a class="nav-link fs-5 fw-bold" href="<?= url('logoutTch')?>">خروج</a>
               </li>
             </ul>
           </div>

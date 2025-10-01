@@ -426,8 +426,9 @@ WHERE
                 WHERE tg.grade = (SELECT tg.grade FROM teacher_grades tg WHERE id = ?)
                 AND ts.subject = (SELECT tg.subject FROM teacher_subjects tg WHERE id = ?)
                 AND tg.academic_year_id = (SELECT ay.id FROM academic_years ay WHERE ? >= ay.start_date AND ? <= ay.end_date And is_active = 1 );',
-            [$_SESSION['teacher'], $grade, $subject, $today, $today])->fetch();
-         
+            [$_SESSION['teacher'], $grade, $subject, $today, $today]
+        )->fetch();
+
         require_once(BASE_PATH . '/template/app/teacher/video/videoDetail.php');
     }
     public function editVideo($id)
@@ -522,30 +523,30 @@ WHERE
         }
         $this->redirectBack();
     }
-   public function storVideo($request)
+    public function storVideo($request)
     {
-     
+
         if (empty($request['title']) || empty($request['video_path']) || empty($request['subject']) || empty($request['description'])) {
             flash('video', 'تمامی فیلد ها اجباری میباشند');
             $this->redirectBack();
         }
-            if ($request['video_path']['tmp_name'] != null) {
-                $image = $request['video_path'];
-                $extension = explode('/', $image['type']);
-                $imageName = date("Y-m-d-H-i-s") . '.' . $extension[1];
-                $imageTemp = $image['tmp_name'];
-                $imagePath = 'public/video/';
+        if ($request['video_path']['tmp_name'] != null) {
+            $image = $request['video_path'];
+            $extension = explode('/', $image['type']);
+            $imageName = date("Y-m-d-H-i-s") . '.' . $extension[1];
+            $imageTemp = $image['tmp_name'];
+            $imagePath = 'public/video/';
 
-                if (is_uploaded_file($imageTemp)) {
+            if (is_uploaded_file($imageTemp)) {
 
-                    if (move_uploaded_file($imageTemp, $imagePath . $imageName)) {
-                        $requestImage = $imagePath . $imageName;
-                        $db = new DataBase();
-                         $db->insert(
-                'educational_videos',
-                ['teacher_id', 'academic_year_id', 'grade', 'title', 'description', 'video_path', 'subject'],
-                [$_SESSION['teacher'], $request['academic_year_id'], $request['grade'], $request['title'], $request['description'], $requestImage, $request['subject']]);
-                
+                if (move_uploaded_file($imageTemp, $imagePath . $imageName)) {
+                    $requestImage = $imagePath . $imageName;
+                    $db = new DataBase();
+                    $db->insert(
+                        'educational_videos',
+                        ['teacher_id', 'academic_year_id', 'grade', 'title', 'description', 'video_path', 'subject'],
+                        [$_SESSION['teacher'], $request['academic_year_id'], $request['grade'], $request['title'], $request['description'], $requestImage, $request['subject']]
+                    );
                 } else {
                     return false;
                 }
@@ -553,10 +554,10 @@ WHERE
                 flash('video', 'ویدیوی درستی انتخاب نشده است');
                 $this->redirectBack();
             }
-        $this->redirectBack();
+            $this->redirectBack();
+        }
     }
-    }
- public function grades()
+    public function grades()
     {
         $db = new DataBase();
         $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
@@ -582,7 +583,7 @@ WHERE
 
         require_once(BASE_PATH . '/template/app/teacher/grades/index.php');
     }
- public function gradesDetail($grade, $subject)
+    public function gradesDetail($grade, $subject)
     {
         $today = date('Y-m-d');
         $db = new DataBase();
@@ -633,7 +634,7 @@ WHERE
             WHERE tg.id = ?;',
             [$_SESSION['teacher'], $grade]
         )->fetchAll();
-      
+
         require_once(BASE_PATH . '/template/app/teacher/grades/gradeDetail.php');
     }
     public function editGrades($id)
@@ -662,7 +663,7 @@ WHERE
 
         if ($grade) {
             $grades_teaher = $db->select(
-            'SELECT
+                'SELECT
         tg.id AS grade_id,
         ts.id AS teacher_subject_id
         FROM teacher_grades tg 
@@ -671,8 +672,8 @@ WHERE
         AND tg.grade = ?
         AND ts.subject = ?
         WHERE tg.teacher_id = ?;',
-            [$grade['grade'], $grade['subject'], $_SESSION['teacher']]
-        )->fetch();
+                [$grade['grade'], $grade['subject'], $_SESSION['teacher']]
+            )->fetch();
             $db->update(
                 'grades',
                 $grade['id'],
@@ -691,7 +692,7 @@ WHERE
             flash('grade', 'تمامی فیلد ها اجباری میباشند');
             $this->redirectBack();
         } else {
-            
+
             $db = new DataBase();
             $db->insert(
                 'grades',
@@ -759,34 +760,16 @@ WHERE
         }
         $this->redirectBack();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-   
-
     public function profile()
     {
         $db = new DataBase();
-        $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
-        require_once(BASE_PATH . '/template/app/student/profile/index.php');
+        $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
+        $teacher_subjects = $db->select('SELECT * FROM grade_subjects ')->fetchAll();
+        require_once(BASE_PATH . '/template/app/teacher/profile/index.php');
     }
-    public function profileStoreST($request)
+    public function profileStoreTch($request)
     {
+
         if (empty($request['name']) || empty($request['last_name']) || empty($request['national_id']) || empty($request['profile_image']) || empty($request['password']) || empty($request['phone'])) {
             flash('register_error', 'تمامی فیلد ها اجباری میباشند');
             $this->redirectBack();
@@ -795,44 +778,99 @@ WHERE
             $this->redirectBack();
         } else {
             $db = new DataBase();
-            $student = $db->select('SELECT * FROM students WHERE id = ?', [$_SESSION['student']])->fetch();
+            $teacher = $db->select('SELECT * FROM teachers WHERE id = ?', [$_SESSION['teacher']])->fetch();
 
-            if ($request['profile_image']['tmp_name'] != null) {
+            if ($teacher) {
+                if ($request['profile_image']['tmp_name'] != null) {
 
-                $this->removeImage($student['profile_image']);
+                    $this->removeImage($teacher['profile_image']);
 
-                $image = $request['profile_image'];
-
-
-                $extension = explode('/', $image['type']);
-
-                $imageName = '_' . $student['id'] . '_' . date("Y-m-d-H-i-s") . '.' . $extension[1];
+                    $image = $request['profile_image'];
 
 
-                $imageTemp = $image['tmp_name'];
+                    $extension = explode('/', $image['type']);
 
-                $imagePath = 'public/image/student/';
+                    $imageName = '_' . $teacher['id'] . '_' . date("Y-m-d-H-i-s") . '.' . $extension[1];
 
-                if (is_uploaded_file($imageTemp)) {
 
-                    if (move_uploaded_file($imageTemp, $imagePath . $imageName)) {
-                        $requestImage = $imagePath . $imageName;
+                    $imageTemp = $image['tmp_name'];
+
+                    $imagePath = 'public/image/teacher/';
+
+                    if (is_uploaded_file($imageTemp)) {
+
+                        if (move_uploaded_file($imageTemp, $imagePath . $imageName)) {
+                            $requestImage = $imagePath . $imageName;
+                        } else {
+                            return false;
+                        }
                     } else {
                         return false;
                     }
                 } else {
-                    return false;
+                    unset($request['image']);
                 }
+
+                $request['password'] = $this->hash($request['password']);
+                $db->update(
+                    'teachers',
+                    $_SESSION['teacher'],
+                    ['name', 'last_name', 'national_id', 'profile_image', 'phone', 'password'],
+                    [$request['name'], $request['last_name'], $request['national_id'], $requestImage, $request['phone'], $request['password']]
+                );
+                $this->redirectBack();
             } else {
-                unset($request['image']);
+                $this->redirectBack();
             }
-            $request['password'] = $this->hash($request['password']);
-            $db->update(
-                'students',
-                $_SESSION['student'],
-                ['name', 'last_name', 'national_id', 'profile_image', 'phone', 'password'],
-                [$request['name'], $request['last_name'], $request['national_id'], $requestImage, $request['phone'], $request['password']]
-            );
+        }
+    }
+    public function profileAdd_subject($requests)
+    {
+
+        if (!empty($request)) {
+            flash('subject', 'لطفا یک درس را انتخاب کنید');
+            $this->redirectBack();
+        } else {
+            foreach ($requests as $request) {
+                $db = new DataBase();
+                $subject = $db->select('SELECT * FROM grade_subjects WHERE id = ?', [$request])->fetch();
+                
+                if ($subject) {
+                    $grade = $db->select(
+                        'SELECT * FROM teacher_grades WHERE teacher_id = ? AND grade = ?',
+                        [$_SESSION['teacher'], $subject['grade']]
+                    )->fetch();
+                  
+                    if ($grade) {
+                        $subject_teacher = $db->select(
+                            'SELECT * FROM teacher_subjects ts WHERE ts.teacher_grade_id = ? AND ts.subject = ?',
+                            [$grade['id'], $subject['subject']]
+                        )->fetch();
+                        if (!$subject_teacher) {
+                            $db->insert(
+                                'teacher_subjects',
+                                ['teacher_id', 'teacher_grade_id', 'subject'],
+                                [$_SESSION['teacher'], $grade['id'], $subject['subject']]
+                            );
+                        }
+                    } else {
+                        $db->insert(
+                            'teacher_grades',
+                            ['teacher_id', 'academic_year_id', 'grade'],
+                            [$_SESSION['teacher'], $subject['academic_year_id'], $subject['grade']]
+                        );
+                        $grade_teacher = $db->select(
+                            'SELECT * FROM teacher_grades WHERE teacher_id = ? AND grade = ?',
+                            [$_SESSION['teacher'], $subject['grade']]
+                        )->fetch();
+                        $db->insert(
+                            'teacher_subjects',
+                            ['teacher_id', 'teacher_grade_id', 'subject'],
+                            [$_SESSION['teacher'], $grade_teacher['id'], $subject['subject']]
+                        );
+                    }
+                }
+            }
             $this->redirectBack();
         }
     }
